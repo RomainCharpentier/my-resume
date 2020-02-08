@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Typography } from '@material-ui/core';
 
 export default class GitRepository extends Component {
 
@@ -9,11 +10,10 @@ export default class GitRepository extends Component {
     }
 
     render() {
-        console.log(this.props.repo);
         return(
             <div>
-                <a href={this.props.repo.clone_url}>{this.props.repo.name}</a>
-                <p>{this.props.repo.description}</p>
+                <Link color="textPrimary" href={this.props.repo.clone_url}>{this.props.repo.name}</Link>
+                <Typography color="textSecondary">{this.props.repo.description}</Typography>
             </div>
         );
     }

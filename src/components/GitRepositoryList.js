@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { ListGroup } from "react-bootstrap";
 import GitRepository from './GitRepository.js';
+import { List } from '@material-ui/core';
 
 export default class GitRepositoryList extends Component {
 
@@ -34,13 +34,11 @@ export default class GitRepositoryList extends Component {
         if (results && results.length > 0) {
             results.sort(GitRepository.compare);
             repos = results.map(repo => <GitRepository key={repo.id} repo={repo} />);
-        } else {
-            //repos = <NoRepos />
         }
         return(
-            <ListGroup>
+            <List >
                 {repos}
-            </ListGroup>
+            </List >
         );
     }
 }
