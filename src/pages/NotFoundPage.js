@@ -1,12 +1,17 @@
 import React from "react";
+import { Link } from '@material-ui/core';
+import { translate } from 'react-multi-lang';
 
-export default class NotFoundComponent extends React.Component {
+class NotFoundPage extends React.Component {
 
   render() {
     return (
         <div>
-            <h3>Go back traveler, you've gone too far</h3>
+            <h3>{this.props.t('notfoundpage.title')}</h3>
+            <Link href='#'>{this.props.t('notfoundpage.link')}</Link>
         </div>
     );
   }
 }
+
+export default translate(NotFoundPage);

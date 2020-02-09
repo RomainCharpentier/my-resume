@@ -1,5 +1,9 @@
 {
     "home": {
       "Title": "Welcome to {param}"
+    },
+    "notfoundpage": {
+      "title": "Go back traveler, you've gone too far",
+      "link": "Back to Home Page"
     }
   }

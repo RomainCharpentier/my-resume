@@ -1,5 +1,9 @@
 {
     "home": {
       "Title": "Bienvenue à {param}"
+    },
+    "notfoundpage": {
+      "title": "Retournez d'où vous venez voyageur, vous êtes allé trop loin",
+      "link": "Retour à la page d'accueuil"
     }
   }

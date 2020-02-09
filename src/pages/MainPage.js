@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GitRepositoryList from '../components/GitRepositoryList';
 import { translate } from 'react-multi-lang';
-import LangButton from '../components/LangButton';
 import { Box, Container, Link, Typography, Avatar } from '@material-ui/core';
 
 function Copyright() {
@@ -32,7 +31,6 @@ class MainPage extends Component {
                         {this.props.t('home.Title', {param: 'react'})}
                     </Typography>
                     <GitRepositoryList />
-                    <LangButton />
                     <Copyright />
                 </Box>
             </Container>

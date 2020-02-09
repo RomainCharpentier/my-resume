@@ -4,9 +4,10 @@ import './App.css';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { translate } from 'react-multi-lang';
 import LangButton from './components/LangButton';
-import { CssBaseline, Container, Link, Typography, Avatar, ThemeProvider, useMediaQuery, createMuiTheme } from '@material-ui/core';
+import { CssBaseline, Container, Link, Typography, Avatar, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import NotFoundPage from './pages/NotFoundPage';
+import Header from './components/Header';
 
 class App extends React.Component {
 
@@ -36,8 +37,9 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div className="App"> 
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
+                    <Header theme={this.toggleDarkTheme} />
                     <CssBaseline />
                     <img src={logo} className='App-logo' alt='logo' />
                     <Router basename="/">
@@ -45,7 +47,6 @@ class App extends React.Component {
                             <Route exact path="/" component={MainPage} />
                             <Route component={NotFoundPage} />
                         </Switch>
-                        <button onClick={this.toggleDarkTheme}>change</button>
                     </Router>
                 </ThemeProvider>
             </div>

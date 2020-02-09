@@ -25,6 +25,7 @@ class LangButton extends Component {
                 aria-label="language"
                 name="language1"
                 value={this.state.value}
+                defaultValue='fr'
                 onChange={this.handleChange}
             >
                 <FormControlLabel value="fr" control={<Radio />} label="FR" />
