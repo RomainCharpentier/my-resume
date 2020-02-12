@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './assets/logo.svg';
 import './App.css';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { translate } from 'react-multi-lang';
-import LangButton from './components/LangButton';
-import { CssBaseline, Container, Link, Typography, Avatar, ThemeProvider, createMuiTheme } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import NotFoundPage from './pages/NotFoundPage';
+import ConstructionPage from './pages/ConstructionPage';
 import Header from './components/Header';
 
 class App extends React.Component {
@@ -36,18 +36,26 @@ class App extends React.Component {
     };
 
     render() {
+        const isWip = false;
+        let routes;
+        if (!isWip) {
+            routes = (
+                <Router basename="/">
+                    <Switch>
+                        <Route exact path="/" component={MainPage} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </Router>);
+        } else {
+            routes = <ConstructionPage />;
+        }
         return (
-            <div className="App"> 
+            <div className="App">
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
-                    <Header theme={this.toggleDarkTheme} />
                     <CssBaseline />
-                    <img src={logo} className='App-logo' alt='logo' />
-                    <Router basename="/">
-                        <Switch>
-                            <Route exact path="/" component={MainPage} />
-                            <Route component={NotFoundPage} />
-                        </Switch>
-                    </Router>
+                    {!isWip && <Header theme={this.toggleDarkTheme} />}
+                    {!isWip && <img src={logo} className='App-logo' alt='logo' />}
+                    {routes}
                 </ThemeProvider>
             </div>
         );

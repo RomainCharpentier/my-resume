@@ -7,7 +7,7 @@ class LangButton extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          selectedValue: 'fr'
+            value: 'fr'
         };
         this.handleChange.bind(this);
     }
@@ -24,7 +24,6 @@ class LangButton extends Component {
             <RadioGroup
                 aria-label="language"
                 name="language1"
-                value={this.state.value}
                 defaultValue='fr'
                 onChange={this.handleChange}
             >
@@ -36,4 +35,3 @@ class LangButton extends Component {
 }
 
 export default LangButton;
-                    
