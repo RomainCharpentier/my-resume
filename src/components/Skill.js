@@ -1,23 +1,57 @@
 import React, { Component } from 'react';
-import { Slider, withStyles } from '@material-ui/core';
+import { LinearProgress, withStyles, Typography, Grid } from '@material-ui/core';
 
-const styles = {
+const styles = (theme) => ({
+    root: {
+        width: '300px',
+        '& > * + *': {
+            marginTop: theme.spacing(2)
+        }
+    },
+    div: {
+        border: 'solid ' + theme.palette.primary.dark,
+        padding: 'inherit'
+    },
     slider: {
-      padding: '22px 0px'
+        height: '10px'
     }
-};
+});
 
 class Skill extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: 0
+        };
+    }
+
+    componentDidMount() {
+        this.interval = setInterval(() => 
+            this.setState({ 
+                value: Math.min(this.props.maxValue, this.state.value+1) 
+            }), (2000/this.props.maxValue)
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
     render() {
-        const { classes, value } = this.props;
-        console.log(this.props)
+        const { classes, name } = this.props;
 
         return (
-            <Slider
-                classes={{ container: classes.slider }}
-                value={value}
-            />
+            <Grid item className={classes.root} borderColor='primary.main'>
+                <div className={classes.div}>
+                    <Typography>{name}</Typography>
+                    <LinearProgress 
+                        variant='determinate'
+                        className={classes.slider}
+                        value={this.state.value}
+                    />
+                </div>
+            </Grid>
         );
     }
 }

@@ -1,13 +1,18 @@
 import React from 'react';
 import logo from './assets/logo.svg';
 import './App.css';
-import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { translate } from 'react-multi-lang';
-import { CssBaseline, ThemeProvider, createMuiTheme } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, createMuiTheme, withStyles } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ConstructionPage from './pages/ConstructionPage';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
+const styles = {
+    
+}
 
 class App extends React.Component {
 
@@ -16,7 +21,7 @@ class App extends React.Component {
         this.state = {
           theme: {
             palette: {
-                type: "dark"
+                type: 'dark'
             }
           }
         };
@@ -25,7 +30,7 @@ class App extends React.Component {
 
      // we change the palette type of the theme in state
     toggleDarkTheme = () => {
-        let newPaletteType = this.state.theme.palette.type === "light" ? "dark" : "light";
+        let newPaletteType = this.state.theme.palette.type === 'light' ? 'dark' : 'light';
         this.setState({
             theme: {
                 palette: {
@@ -38,11 +43,12 @@ class App extends React.Component {
     render() {
         const isWip = false;
         let routes;
+        const {classes} = this.props;
         if (!isWip) {
             routes = (
-                <Router basename="/">
+                <Router basename='/'>
                     <Switch>
-                        <Route exact path="/" component={MainPage} />
+                        <Route exact path='/' component={MainPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </Router>);
@@ -50,16 +56,17 @@ class App extends React.Component {
             routes = <ConstructionPage />;
         }
         return (
-            <div className="App">
+            <div className='App'>
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
                     <CssBaseline />
                     {!isWip && <Header theme={this.toggleDarkTheme} />}
                     {!isWip && <img src={logo} className='App-logo' alt='logo' />}
                     {routes}
+                    <Footer />
                 </ThemeProvider>
             </div>
         );
     }
 }
 
-export default translate(App);
+export default withStyles(styles)(translate(App));

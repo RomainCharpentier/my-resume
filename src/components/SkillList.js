@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
-import { Box, withStyles } from '@material-ui/core';
+import React, { Component, Fragment } from 'react';
+import { Grid, Typography } from '@material-ui/core';
+import { translate } from 'react-multi-lang';
 import Skill from './Skill.js';
-
-const styles = {
-    slider: {
-      padding: '22px 0px'
-    }
-};
 
 class SkillList extends Component {
 
     render() {
         return (
-            <Box display='flex'>
-                <Skill value='10' />
-                <Skill value='20' />
-                <Skill value='20' />
-                <Skill value='20' />
-                <Skill value='20' />
-                <Skill value='20' />
-                <Skill value='20' />
-                <Skill value='20' />
-            </Box>
+            <Fragment>
+                <Typography variant='h5'>{this.props.t('home.skills')}</Typography>
+                <Grid container spacing={3}>
+                    <Skill name='Java' maxValue={90} />
+                    <Skill name='Javascript' maxValue={70} />
+                    <Skill name='Kotlin' maxValue={30} />
+                </Grid>
+            </Fragment>
         );
     }
 }
 
-export default withStyles(styles)(SkillList);
+export default translate(SkillList);

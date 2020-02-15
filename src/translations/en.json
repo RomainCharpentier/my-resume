@@ -1,7 +1,8 @@
 {
     "home": {
       "title": "Romain Charpentier",
-      "description": "I am Romain Charpentier, holding Master degree in computer science."
+      "description": "I am Romain Charpentier, holding Master degree in computer science.",
+      "skills" : "Skills"
     },
     "notfoundpage": {
       "title": "Go back traveler, you've gone too far",

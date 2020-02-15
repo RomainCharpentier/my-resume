@@ -12,8 +12,8 @@ export default class GitRepository extends Component {
     render() {
         return(
             <div>
-                <Link color="textPrimary" href={this.props.repo.clone_url}>{this.props.repo.name}</Link>
-                <Typography color="textSecondary">{this.props.repo.description}</Typography>
+                <Link color='textPrimary' href={this.props.repo.clone_url}>{this.props.repo.name}</Link>
+                <Typography color='textSecondary'>{this.props.repo.description}</Typography>
             </div>
         );
     }

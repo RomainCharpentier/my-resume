@@ -22,13 +22,13 @@ class LangButton extends Component {
     render() {
         return (
             <RadioGroup
-                aria-label="language"
-                name="language1"
+                aria-label='language'
+                name='language1'
                 defaultValue='fr'
                 onChange={this.handleChange}
             >
-                <FormControlLabel value="fr" control={<Radio />} label="FR" />
-                <FormControlLabel value="en" control={<Radio />} label="EN" />
+                <FormControlLabel value='fr' control={<Radio />} label='FR' />
+                <FormControlLabel value='en' control={<Radio />} label='EN' />
             </RadioGroup>
         );
     }

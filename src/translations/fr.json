@@ -1,7 +1,8 @@
 {
     "home": {
       "title": "Romain Charpentier",
-      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique."
+      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique.",
+      "skills" : "Compétences"
     },
     "notfoundpage": {
       "title": "Retournez d'où vous venez voyageur, vous êtes allé trop loin",

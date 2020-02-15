@@ -95,25 +95,25 @@ class Header extends Component {
             <Fragment>
                 <AppBar
                     color='inherit'
-                    position="sticky"
+                    position='sticky'
                     className={clsx(classes.appBar, {
                         [classes.appBarShift]: this.state.open,
                     })}
                 >
                     <Toolbar>
                         <IconButton
-                            color="inherit"
-                            aria-label="open drawer"
+                            color='inherit'
+                            aria-label='open drawer'
                             onClick={this.handleDrawerOpen}
-                            edge="start"
+                            edge='start'
                             className={clsx(classes.menuButton, this.state.open && classes.hide)}
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" noWrap className={classes.title} align='left'>
+                        <Typography variant='h6' noWrap className={classes.title} align='left'>
                             Resume
                         </Typography>
-                        <Typography variant="h6" noWrap>
+                        <Typography variant='h6' noWrap>
                             Romain Charpentier
                         </Typography>
                         <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' />
@@ -121,8 +121,8 @@ class Header extends Component {
                 </AppBar>
                 <Drawer
                     className={classes.drawer}
-                    variant="persistent"
-                    anchor="left"
+                    variant='persistent'
+                    anchor='left'
                     open={this.state.open}
                     classes={{
                     paper: classes.drawerPaper,
@@ -137,7 +137,7 @@ class Header extends Component {
                         </IconButton>
                     </div>
                     <Divider />
-                    <IconButton onClick={()=> window.open("https://www.linkedin.com/in/romain-charpentier/", "_blank")}>
+                    <IconButton onClick={()=> window.open('https://www.linkedin.com/in/romain-charpentier/', '_blank')}>
                         <LinkedInIcon />
                     </IconButton>
                     <LangButton />
