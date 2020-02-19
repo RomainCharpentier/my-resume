@@ -2,7 +2,13 @@
     "home": {
       "title": "Romain Charpentier",
       "description": "Je suis Romain Charpentier, titulaire d'un master en informatique.",
-      "skills" : "Compétences"
+      "skills" : "Compétences",
+      "education": {
+        "master": {
+          "title": "Master Informatique",
+          "description": "Description"
+        }
+      }
     },
     "notfoundpage": {
       "title": "Retournez d'où vous venez voyageur, vous êtes allé trop loin",

@@ -9,7 +9,7 @@ import fr from './translations/fr.json'
 import en from './translations/en.json'
 
 setDefaultTranslations({fr, en})
-setDefaultLanguage('fr')
+setDefaultLanguage('en')
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -1,8 +1,7 @@
 import React from 'react';
-import logo from './assets/logo.svg';
 import './App.css';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import { translate } from 'react-multi-lang';
+import { translate, setLanguage } from 'react-multi-lang';
 import { CssBaseline, ThemeProvider, createMuiTheme, withStyles } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -26,6 +25,12 @@ class App extends React.Component {
           }
         };
         this.toggleDarkTheme.bind(this);
+        console.log(window.navigator.language);
+        if (navigator.language.indexOf('fr') > -1) {
+            setLanguage('fr');
+        } else {
+            setLanguage('en');
+        }
     }
 
      // we change the palette type of the theme in state
@@ -60,7 +65,6 @@ class App extends React.Component {
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
                     <CssBaseline />
                     {!isWip && <Header theme={this.toggleDarkTheme} />}
-                    {!isWip && <img src={logo} className='App-logo' alt='logo' />}
                     {routes}
                     <Footer />
                 </ThemeProvider>
