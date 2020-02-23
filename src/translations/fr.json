@@ -1,17 +1,20 @@
 {
     "home": {
       "title": "Romain Charpentier",
-      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique.",
-      "skills" : "Compétences",
-      "education": {
-        "master": {
-          "title": "Master Informatique",
-          "description": "Description"
-        }
-      }
+      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique."
     },
-    "notfoundpage": {
-      "title": "Retournez d'où vous venez voyageur, vous êtes allé trop loin",
-      "link": "Retour à la page d'accueil"
+    "skills": {
+      "title": "Compétences"
+    },
+    "header": {
+      "home": "Accueil",
+      "git": "Git"
+    },
+    "education": {
+      "title": "Education",
+      "master": {
+        "title": "Master Informatique",
+        "description": "Description"
+      }
     }
   }

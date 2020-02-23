@@ -1,72 +1,61 @@
-import React from 'react';
-import { withStyles, List, ListItem, Avatar, Typography } from '@material-ui/core';
+import React, { useRef } from 'react';
+import { withStyles, Typography, useScrollTrigger, Slide, AppBar, Toolbar } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
-import background from '../assets/header_wallpaper.jpg';
 
 const styles = (theme) => ({
-    'root': {
-        background: '#161415 url(' + background + ') no-repeat center',
-        backgroundSize: 'cover !important',
-        height: '800px',
-        minHeight: '500px',
-        textAlign: '-webkit-center'
-    },
     'nav' : { 
         backgroundColor: 'transparent !important',
         display: 'flex',
-        flexDirection: 'row',
-        position: 'fixed',
-        width: '-webkit-fill-available'
+        flexDirection: 'row'
     },
     'item': {
         '&:hover' : {
             color: '#F06000'
         },
-        justifyContent: 'center'
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        textShadow: '1px 1px 2px red, 0 0 1em blue',
+        textTransform: 'uppercase',
+        letterSpacing: '2.5px',
+        margin: '10px'
     },
-    'avatar': {
-        width: theme.spacing(20),
-        height: theme.spacing(20)
-    },
-    'div': {
-        position: 'relative',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%,-50%)',
-        '&>h3': {
-            textShadow: '1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue'
+    'appBar': {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+        alignItems: 'center',
+        '&:hover': {
+            cursor: 'pointer'
         }
     }
 });
 
-function ListItemLink(props) {
-    return <ListItem button component='a' {...props} />;
+function HideOnScroll(props) {
+    const { children, window } = props;
+    const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
 }
 
 const NewHeader = props => {
+    const { classes, refs } = props;
 
-    const { classes } = props;
+    const scroll = (ref) => {
+        ref.current.scrollIntoView({behavior: 'smooth'})
+    }
+
     return(
-        <div className={classes.root}>
-            <List id='nav' className={classes.nav}>
-                <ListItemLink className={classes.item} href='#nav'>Home</ListItemLink>
-                <ListItemLink className={classes.item} href='#about'>About</ListItemLink>
-                <ListItemLink className={classes.item} href='#resume'>Resume</ListItemLink>
-                <ListItemLink className={classes.item} href='#portfolio'>Works</ListItemLink>
-                <ListItemLink className={classes.item} href='#testimonials'>Testimonials</ListItemLink>
-                <ListItemLink className={classes.item} href='#contact'>Contact</ListItemLink>
-            </List>
-            <div className={classes.div}>
-                <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' className={classes.avatar} />
-                <Typography color='textPrimary' variant='h3'>
-                    {props.t('home.title')}
-                </Typography>
-                <Typography color='textSecondary' variant='h5'>
-                    {props.t('home.description')}
-                </Typography>
-            </div>
-        </div>
+        <HideOnScroll {...props}>
+            <AppBar className={classes.appBar}>
+                <Toolbar className={classes.nav}>
+                    {Object.keys(refs).map(key => (<Typography className={classes.item} onClick={() => {scroll(refs[key])}}>{props.t(`header.${key}`)}</Typography>))}
+                </Toolbar>
+            </AppBar>
+        </HideOnScroll>
     );
-}
+};
 
 export default withStyles(styles)(translate(NewHeader));

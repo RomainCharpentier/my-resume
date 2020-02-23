@@ -1,17 +1,20 @@
 {
     "home": {
       "title": "Romain Charpentier",
-      "description": "I am Romain Charpentier, holding Master degree in computer science.",
-      "skills" : "Skills",
-      "education": {
-        "master": {
-          "title": "Master degree in computer science",
-          "description": "Description"
-        }
-      }
+      "description": "I am Romain Charpentier, holding Master degree in computer science."
     },
-    "notfoundpage": {
-      "title": "Go back traveler, you've gone too far",
-      "link": "Back to Home Page"
+    "skills": {
+      "title": "Skills"
+    },
+    "header": {
+      "home": "Home",
+      "git": "Git"
+    },
+    "education": {
+      "title": "Education",
+      "master": {
+        "title": "Master degree in computer science",
+        "description": "Description"
+      }
     }
   }

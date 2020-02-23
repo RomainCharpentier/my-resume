@@ -1,44 +1,34 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Typography } from '@material-ui/core';
+import { translate } from 'react-multi-lang';
 import GitRepository from './GitRepository.js';
-import { List } from '@material-ui/core';
 
-export default class GitRepositoryList extends Component {
+const GitRepositoryList = React.forwardRef((props, ref) => {
+    const [repos, setRepos] = useState(null);
 
-    constructor(props){
-        super(props);
-        this.state = {}
-        this.performSearch.bind(this);
-    }
-
-    componentDidMount() {
-        this.performSearch();
-    }
-
-    performSearch() {
+    useEffect(() => {
         axios.get(`https://api.github.com/users/RomainCharpentier/repos`)
-            .then(response => {
-                this.setState({
-                    repos: response.data
-                });
-                this.forceUpdate(); // call render()
-            })
-            .catch(error => {
-                console.log('Error fetching and parsing data', error);
-            });
-    }
+        .then(response => {
+            setRepos(response.data);
+        })
+        .catch(error => {
+            console.log('Error fetching and parsing data', error);
+        });
+    });
 
-    render() {
-        const results = this.state.repos;
-        let repos;
-        if (results && results.length > 0) {
-            results.sort(GitRepository.compare);
-            repos = results.map(repo => <GitRepository key={repo.id} repo={repo} />);
-        }
-        return(
-            <List >
-                {repos}
-            </List >
-        );
+    let items;
+    if (repos && repos.length > 0) {
+        repos.sort(GitRepository.compare);
+        items = repos.map(item => <GitRepository key={item.id} repo={item} />);
     }
-}
+    
+    return(
+        <div ref={ref}>
+            <Typography variant='h5'>{props.t('git.title')}</Typography>
+            {items}
+        </div >
+    );
+});
+
+export default translate(GitRepositoryList);

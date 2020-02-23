@@ -1,12 +1,9 @@
 import React from 'react';
 import './App.css';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { translate, setLanguage } from 'react-multi-lang';
 import { CssBaseline, ThemeProvider, createMuiTheme, withStyles } from '@material-ui/core';
 import MainPage from './pages/MainPage';
-import NotFoundPage from './pages/NotFoundPage';
 import ConstructionPage from './pages/ConstructionPage';
-import Header from './components/Header';
 import Footer from './components/Footer';
 
 const styles = {
@@ -25,7 +22,6 @@ class App extends React.Component {
           }
         };
         this.toggleDarkTheme.bind(this);
-        console.log(window.navigator.language);
         if (navigator.language.indexOf('fr') > -1) {
             setLanguage('fr');
         } else {
@@ -47,25 +43,18 @@ class App extends React.Component {
 
     render() {
         const isWip = false;
-        let routes;
+        let page;
         const {classes} = this.props;
         if (!isWip) {
-            routes = (
-                <Router basename='/'>
-                    <Switch>
-                        <Route exact path='/' component={MainPage} />
-                        <Route component={NotFoundPage} />
-                    </Switch>
-                </Router>);
+            page = <MainPage />
         } else {
-            routes = <ConstructionPage />;
+            page = <ConstructionPage />;
         }
         return (
             <div className='App'>
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
                     <CssBaseline />
-                    {!isWip && <Header theme={this.toggleDarkTheme} />}
-                    {routes}
+                    {page}
                     <Footer />
                 </ThemeProvider>
             </div>
