@@ -1,0 +1,35 @@
+{
+    "home": {
+      "title": "Accueil",
+      "name": "Romain Charpentier",
+      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique."
+    },
+    "skills": {
+      "title": "Compétences"
+    },
+    "git": {
+      "title": "Git"
+    },
+    "education": {
+      "title": "Education",
+      "0": {
+        "title": "Master Informatique",
+        "description": "Description"
+      },
+      "1": {
+        "title": "Licence Informatique",
+        "description": "Description"
+      }
+    },
+    "experience": {
+      "title": "Experience",
+      "0": {
+        "title": "Master Informatique",
+        "description": "Description"
+      },
+      "1": {
+        "title": "Licence Informatique",
+        "description": "Description"
+      }
+    }
+  }

@@ -1,0 +1,35 @@
+{
+    "home": {
+      "title": "Home",
+      "name": "Romain Charpentier",
+      "description": "I am Romain Charpentier, holding Master degree in computer science."
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "git": {
+      "title": "Git"
+    },
+    "education": {
+      "title": "Education",
+      "0": {
+        "title": "Master degree in computer science",
+        "description": "Description"
+      },
+      "1": {
+        "title": "Licence Informatique",
+        "description": "Description"
+      }
+    },
+    "experience": {
+      "title": "Expérience",
+      "0": {
+        "title": "Master degree in computer science",
+        "description": "Description"
+      },
+      "1": {
+        "title": "Licence Informatique",
+        "description": "Description"
+      }
+    }
+  }

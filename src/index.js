@@ -5,8 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import { setDefaultTranslations, setDefaultLanguage } from 'react-multi-lang'
-import fr from './translations/fr.json'
-import en from './translations/en.json'
+import fr from './data/translations/fr.json'
+import en from './data/translations/en.json'
 
 setDefaultTranslations({fr, en})
 setDefaultLanguage('en')

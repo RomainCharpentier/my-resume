@@ -51,7 +51,7 @@ const NewHeader = props => {
         <HideOnScroll {...props}>
             <AppBar className={classes.appBar}>
                 <Toolbar className={classes.nav}>
-                    {Object.keys(refs).map(key => (<Typography className={classes.item} onClick={() => {scroll(refs[key])}}>{props.t(`header.${key}`)}</Typography>))}
+                    {refs.map(value => (<Typography className={classes.item} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>))}
                 </Toolbar>
             </AppBar>
         </HideOnScroll>

@@ -8,6 +8,8 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import logo from '../assets/logo.svg';
 import Home from '../components/Home';
+import EducationList from '../components/EducationList';
+import ExperienceList from '../components/ExperienceList';
 
 const styles = (theme) => ({
     copyRight: {
@@ -18,6 +20,13 @@ const styles = (theme) => ({
         position: 'fixed',
         bottom: theme.spacing(2),
         right: theme.spacing(2)
+    },
+    section: {
+    },
+    section2: {
+        paddingTop: '20px',
+        marginBottom: '20px',
+        backgroundColor: 'black'
     }
 });
 
@@ -52,27 +61,62 @@ ScrollTop.propTypes = {
     window: PropTypes.func
 };
 
-const test = props => {
-
-    return (
-        <div>
-
-        </div>
-    );
+const data = {
+    content: [
+        {
+            key: 1,
+            title: 'home',
+            ref: React.createRef(),
+            component: Home
+        },
+        {
+            key: 2,
+            title: 'skills',
+            ref: React.createRef(),
+            component: SkillList
+        },
+        {
+            key: 3,
+            title: 'git',
+            ref: React.createRef(),
+            component: GitRepositoryList
+        },
+        {
+            key: 4,
+            title: 'education',
+            ref: React.createRef(),
+            component: EducationList
+        },
+        {
+            key: 5,
+            title: 'experience',
+            ref: React.createRef(),
+            component: ExperienceList
+        }
+    ]
 }
 
 class MainPage extends Component {
 
     render() {
-        const { classes } = this.props;
-        let refs = {'home': React.createRef(), 'git': React.createRef()}
+        const { classes, t } = this.props;
         return(
             <React.Fragment>
-                <NewHeader refs={refs} />
-                <Home ref={refs['home']} />
-                <img src={logo} className='App-logo' alt='logo' />
-                <SkillList />
-                <GitRepositoryList ref={refs['git']} />
+                <NewHeader refs={data.content} />
+                {
+                    data.content.map(function (item) {
+                        let className = classes.section;
+                        if (item.key%2 === 0) className = `${classes.section} ${classes.section2}`;
+                        let title = item.key!==1 ? <p>{t(`${item.title}.title`)}</p> : '';
+                        return (
+                            <div className={className} ref={item.ref} id={`key${item.key}`}>
+                                {title}
+                                {React.createElement(item.component)}
+                            </div>);
+                        }
+                    )
+                }
+                {/*<img src={logo} className='App-logo' alt='logo' />*/}
                 <ScrollTop {...this.props}>
                     <Fab color='primary' size='small' aria-label='scroll back to top'>
                         <KeyboardArrowUpIcon />
