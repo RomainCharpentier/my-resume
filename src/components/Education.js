@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Typography } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 
-const Education = React.forwardRef((props, ref) => {
+const Education = props => {
 
     return(
-        <div ref={ref}>
-            <Typography variant='h6'>{props.title}</Typography>
-            <Typography>{props.description}</Typography>
+        <div>
+            <Typography variant='subtitle1'>{props.title}</Typography>
+            <Typography variant='body2'>{props.description}</Typography>
         </div >
     );
-});
+};
 
 export default translate(Education);

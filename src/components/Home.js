@@ -21,10 +21,7 @@ const styles = (theme) => ({
         position: 'relative',
         top: '50%',
         left: '50%',
-        transform: 'translate(-50%,-50%)',
-        '&>h3': {
-            textShadow: '1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue'
-        }
+        transform: 'translate(-50%,-50%)'
     },
     'appBar': {
         backgroundColor: 'transparent',
@@ -47,7 +44,6 @@ const styles = (theme) => ({
 
 const Home = React.forwardRef((props, ref) => {
     const { classes } = props;
-    console.log(`ref : ${ref}`);
 
     const handleClick = event => {
         const anchor = (event.target.ownerDocument || document).querySelector("#key2");
@@ -61,10 +57,10 @@ const Home = React.forwardRef((props, ref) => {
         <div className={classes.root} id="back-to-top-anchor" ref={ref}>
             <div className={classes.content}>
                 <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' className={classes.avatar} />
-                <Typography color='textPrimary' variant='h3'>
+                <Typography variant='h1'>
                     {props.t('home.name')}
                 </Typography>
-                <Typography color='textSecondary' variant='h5'>
+                <Typography variant='h3'>
                     {props.t('home.description')}
                 </Typography>
                 <div>

@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import Experience from './Experience';
 
-const ExperienceList = React.forwardRef((props, ref) => {
+const ExperienceList = props => {
 
     const experiences = [];
     let key = `experience.${experiences.length}.title`;
@@ -21,11 +21,11 @@ const ExperienceList = React.forwardRef((props, ref) => {
     }
 
     return(
-        <div ref={ref}>
-            <Typography variant='h5'>{props.t('experience.title')}</Typography>
+        <React.Fragment>
+            <Typography variant='h5' className={props.className}>{props.t('experience.title')}</Typography>
             {experiences.map(item => <Experience {...item} />)}
-        </div >
+        </React.Fragment>
     );
-});
+};
 
 export default translate(ExperienceList);

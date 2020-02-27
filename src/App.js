@@ -17,9 +17,40 @@ class App extends React.Component {
         this.state = {
           theme: {
             palette: {
-                type: 'dark'
-            }
-          }
+                type: 'dark',
+                text: {
+                    default: '#fff',
+                    primary: '#1976d2',
+                    secondary: '#a9a9a9',
+                },
+                textColor: '#fff',
+                primary: {
+                    main: '#1976d2',
+                    dark: '#fff'
+                },
+            },
+            typography: {
+                h1: {
+                    color: '#fff',
+                    fontFamily: 'Times New Roman", Times, serif',
+                    fontSize: '3rem'
+                },
+                h3: {
+                    color: '#fff',
+                    fontFamily: 'caption',
+                    fontSize: '1.5rem'
+                },
+                h5: {
+                    color: '#00ffff'
+                },
+                subtitle1: {
+                    color: '#fff'
+                },
+                body2: {
+                    color: '#a9a9a9'
+                },
+            },
+          },
         };
         this.toggleDarkTheme.bind(this);
         if (navigator.language.indexOf('fr') > -1) {
@@ -44,7 +75,6 @@ class App extends React.Component {
     render() {
         const isWip = false;
         let page;
-        const {classes} = this.props;
         if (!isWip) {
             page = <MainPage />
         } else {
@@ -62,4 +92,4 @@ class App extends React.Component {
     }
 }
 
-export default withStyles(styles)(translate(App));
+export default translate(App);

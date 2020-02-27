@@ -44,7 +44,7 @@ class Skill extends Component {
         return (
             <Grid item className={classes.root} borderColor='primary.main'>
                 <div className={classes.div}>
-                    <Typography>{name}</Typography>
+                    <Typography variant='subtitle1'>{name}</Typography>
                     <LinearProgress 
                         variant='determinate'
                         className={classes.slider}

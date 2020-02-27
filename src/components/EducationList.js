@@ -3,7 +3,7 @@ import { Typography } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import Education from './Education';
 
-const EducationList = React.forwardRef((props, ref) => {
+const EducationList = props => {
 
     const educations = [];
     let key = `education.${educations.length}.title`;
@@ -21,11 +21,11 @@ const EducationList = React.forwardRef((props, ref) => {
     }
 
     return(
-        <div ref={ref}>
-            <Typography variant='h5'>{props.t('education.title')}</Typography>
+        <React.Fragment>
+            <Typography variant='h5' className={props.className}>{props.t('education.title')}</Typography>
             {educations.map(item => <Education {...item} />)}
-        </div >
+        </React.Fragment>
     );
-});
+};
 
 export default translate(EducationList);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GitRepositoryList from '../components/GitRepositoryList';
 import NewHeader from '../components/NewHeader';
 import { translate } from 'react-multi-lang';
-import { Box, Container, Typography, withStyles, useScrollTrigger, Zoom, Fab } from '@material-ui/core';
+import { Box, Container, Divider, withStyles, useScrollTrigger, Zoom, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import logo from '../assets/logo.svg';
@@ -22,11 +22,14 @@ const styles = (theme) => ({
         right: theme.spacing(2)
     },
     section: {
+        paddingTop: '20px',
+        paddingBottom: '20px',
     },
     section2: {
-        paddingTop: '20px',
-        marginBottom: '20px',
-        backgroundColor: 'black'
+        backgroundColor: 'rgb(36, 36, 36)'
+    },
+    sectionTitle: {
+        textTransform: 'uppercase'
     }
 });
 
@@ -64,31 +67,31 @@ ScrollTop.propTypes = {
 const data = {
     content: [
         {
-            key: 1,
+            key: 0,
             title: 'home',
             ref: React.createRef(),
             component: Home
         },
         {
-            key: 2,
+            key: 1,
             title: 'skills',
             ref: React.createRef(),
             component: SkillList
         },
         {
-            key: 3,
+            key: 2,
             title: 'git',
             ref: React.createRef(),
             component: GitRepositoryList
         },
         {
-            key: 4,
+            key: 3,
             title: 'education',
             ref: React.createRef(),
             component: EducationList
         },
         {
-            key: 5,
+            key: 4,
             title: 'experience',
             ref: React.createRef(),
             component: ExperienceList
@@ -106,15 +109,16 @@ class MainPage extends Component {
                 {
                     data.content.map(function (item) {
                         let className = classes.section;
-                        if (item.key%2 === 0) className = `${classes.section} ${classes.section2}`;
-                        let title = item.key!==1 ? <p>{t(`${item.title}.title`)}</p> : '';
+                        if (item.key%2!==0) className = `${classes.section} ${classes.section2}`;
+                        if (item.key===0) className = ``;
                         return (
+                            <React.Fragment>
                             <div className={className} ref={item.ref} id={`key${item.key}`}>
-                                {title}
-                                {React.createElement(item.component)}
-                            </div>);
-                        }
-                    )
+                                {React.createElement(item.component, {className:classes.sectionTitle})}
+                            </div>
+                            </React.Fragment>
+                       )
+                    })
                 }
                 {/*<img src={logo} className='App-logo' alt='logo' />*/}
                 <ScrollTop {...this.props}>

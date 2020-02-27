@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import GitRepository from './GitRepository.js';
 
-const GitRepositoryList = React.forwardRef((props, ref) => {
+const GitRepositoryList = props => {
     const [repos, setRepos] = useState(null);
 
     useEffect(() => {
@@ -24,11 +24,11 @@ const GitRepositoryList = React.forwardRef((props, ref) => {
     }
     
     return(
-        <div ref={ref}>
-            <Typography variant='h5'>{props.t('git.title')}</Typography>
+        <React.Fragment>
+            <Typography variant='h5' className={props.className}>{props.t('git.title')}</Typography>
             {items}
-        </div >
+        </React.Fragment>
     );
-});
+};
 
 export default translate(GitRepositoryList);
