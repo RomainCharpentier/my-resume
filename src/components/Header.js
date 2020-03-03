@@ -1,168 +1,117 @@
-import React, { Component, Fragment } from 'react';
-import clsx from 'clsx';
-import { Drawer, AppBar, Toolbar, List, Typography, Divider, IconButton, ListItem, ListItemIcon, ListItemText, withStyles, Avatar } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { withStyles, Typography, useScrollTrigger, Slide, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import LangButton from './LangButton';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import { translate } from 'react-multi-lang';
 
-const drawerWidth = 240;
-
-const styles = theme => ({
-    root: {
+const styles = (theme) => ({
+    'nav' : { 
+        backgroundColor: 'transparent !important',
         display: 'flex',
+        flexDirection: 'row'
     },
-    appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        })
+    'item': {
+        '&:hover' : {
+            color: '#F06000'
+        },
+        fontWeight: 'bold',
+        justifyContent: 'center',
+        textShadow: '1px 1px 2px red, 0 0 1em blue',
+        textTransform: 'uppercase',
+        letterSpacing: '2.5px',
+        margin: '10px'
     },
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        })
-    },
-    menuButton: {
-        marginRight: theme.spacing(2)
-    },
-    hide: {
-        display: 'none'
-    },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0
-    },
-    drawerPaper: {
-        width: drawerWidth
-    },
-    drawerHeader: {
-        display: 'flex',
+    'appBar': {
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
         alignItems: 'center',
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-        justifyContent: 'flex-end'
+        '&:hover': {
+            cursor: 'pointer'
+        }
     },
-    content: {
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen
-        }),
-        marginLeft: -drawerWidth
-    },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen
-        }),
-        marginLeft: 0
-    },
-    title: {
-        flexGrow: 1
+    'menuButton': {
+        justifyContent: 'left',
     }
 });
 
-class Header extends Component {
+function HideOnScroll(props) {
+    const { children, window } = props;
+    const trigger = useScrollTrigger({ target: window ? window() : undefined });
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            'open': false
-        };
-    }
-
-    handleDrawerOpen = () => {
-        this.setState({
-            'open': true
-        })
-    };
-
-    handleDrawerClose = () => {
-        this.setState({
-            'open': false
-        })
-    };
-
-    render() {
-        const { classes } = this.props;
-        return(
-            <Fragment>
-                <AppBar
-                    color='inherit'
-                    position='sticky'
-                    className={clsx(classes.appBar, {
-                        [classes.appBarShift]: this.state.open,
-                    })}
-                >
-                    <Toolbar>
-                        <IconButton
-                            color='inherit'
-                            aria-label='open drawer'
-                            onClick={this.handleDrawerOpen}
-                            edge='start'
-                            className={clsx(classes.menuButton, this.state.open && classes.hide)}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant='h6' noWrap className={classes.title} align='left'>
-                            Resume
-                        </Typography>
-                        <Typography variant='h6' noWrap>
-                            Romain Charpentier
-                        </Typography>
-                        <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' />
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    className={classes.drawer}
-                    variant='persistent'
-                    anchor='left'
-                    open={this.state.open}
-                    classes={{
-                    paper: classes.drawerPaper,
-                    }}
-                >
-                    <div 
-                        className={classes.drawerHeader} 
-                        onClick={this.handleDrawerClose}
-                    >
-                        <IconButton onClick={this.handleDrawerClose}>
-                            <MenuIcon />
-                        </IconButton>
-                    </div>
-                    <Divider />
-                    <IconButton onClick={()=> window.open('https://www.linkedin.com/in/romain-charpentier/', '_blank')}>
-                        <LinkedInIcon />
-                    </IconButton>
-                    <LangButton />
-                    <button onClick={this.props.theme}>change</button>
-                    <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                            <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                            </ListItem>
-                        ))}
-                    </List>
-                </Drawer>
-            </Fragment>
-        );
-    }
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
 }
 
-export default withStyles(styles)(Header);
+// Window width
+const getWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+const Header = props => {
+    const { classes, refs } = props;
+    const [width, setWidth] = useState(getWidth());
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const open = Boolean(anchorEl);
+    const handleClick = event => {
+        setAnchorEl(event.currentTarget);
+    };
+    
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const mob1 = refs.map(value => (<Typography className={classes.item} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>));
+    const mob2 = (<IconButton edge="start" className={classes.menuButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
+
+    const [mobile, setMobile] = useState((width > 500) ? mob1 : mob2);
+
+    const scroll = (ref) => {
+        ref.current.scrollIntoView({behavior: 'smooth'});
+    }
+    
+    useEffect(() => {
+        const resizeListener = () => {
+            // change width from the state object
+            setWidth(getWidth());
+            if (width > 500) {
+                setMobile(mob1);
+            } else {
+                setMobile(mob2);
+            }
+            handleClose();
+        };
+        // set resize listener
+        window.addEventListener('resize', resizeListener);
+        
+        // clean up function
+        return () => {
+            // remove resize listener
+            window.removeEventListener('resize', resizeListener);
+        }
+    });
+
+    return(
+        <HideOnScroll {...props}>
+            <AppBar className={classes.appBar}>
+                <Toolbar className={classes.nav}>
+                    {mobile}
+                    <Menu
+                        anchorEl={anchorEl}
+                        keepMounted
+                        open={open}
+                        onClose={handleClose}
+                    >
+                        {refs.map(value => (
+                            <MenuItem key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
+                                <Typography className={classes.item}>{props.t(`${value.title}.title`)}</Typography>
+                            </MenuItem>
+                        ))}
+                    </Menu>
+                </Toolbar>
+            </AppBar>
+        </HideOnScroll>
+    );
+};
+
+export default withStyles(styles)(translate(Header));

@@ -71,9 +71,9 @@ const Home = React.forwardRef((props, ref) => {
                         <GitHubIcon className={classes.icon} />
                     </IconButton> 
                 </div>
-                    <IconButton onClick={handleClick} className={classes.iconButton}>
-                        <KeyboardArrowDownIcon className={classes.icon} />
-                    </IconButton>
+                <IconButton onClick={handleClick} className={classes.iconButton}>
+                    <KeyboardArrowDownIcon className={classes.icon} />
+                </IconButton>
             </div>
         </div>
     );

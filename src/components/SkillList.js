@@ -4,16 +4,16 @@ import { translate } from 'react-multi-lang';
 import Skill from './Skill.js';
 import skills from '../data/skills.json';
 
-const SkillList = React.forwardRef((props, ref) => {
+const SkillList = props => {
 
     return (
-        <div ref={ref}>
+        <React.Fragment>
             <Typography variant='h5' className={props.className}>{props.t('skills.title')}</Typography>
             <Grid container spacing={3} alignItems='center' justify='center'>
                 {skills.body.map((item) => <Skill name={item.name} maxValue={item.level} />)}
             </Grid>
-        </div >
+        </React.Fragment>
     );
-});
+};
 
 export default translate(SkillList);

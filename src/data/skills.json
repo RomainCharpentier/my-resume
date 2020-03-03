@@ -7,6 +7,14 @@
         {
             "name": "Javascript",
             "level": 50
+        },
+        {
+            "name": "React",
+            "level": 90
+        },
+        {
+            "name": "Git",
+            "level": 50
         }
     ]
 }

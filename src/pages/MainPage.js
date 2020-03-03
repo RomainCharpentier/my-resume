@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GitRepositoryList from '../components/GitRepositoryList';
-import NewHeader from '../components/NewHeader';
+import Header from '../components/Header';
 import { translate } from 'react-multi-lang';
 import { Box, Container, Divider, withStyles, useScrollTrigger, Zoom, Fab } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
@@ -105,7 +105,7 @@ class MainPage extends Component {
         const { classes, t } = this.props;
         return(
             <React.Fragment>
-                <NewHeader refs={data.content} />
+                <Header refs={data.content} />
                 {
                     data.content.map(function (item) {
                         let className = classes.section;

@@ -14,22 +14,34 @@
       "title": "Education",
       "0": {
         "title": "Master degree in computer science",
-        "description": "Description"
+        "description": "Description",
+        "place": "University of Poitiers",
+        "start_year": "2014",
+        "end_year": "2017"
       },
       "1": {
         "title": "Licence Informatique",
-        "description": "Description"
+        "description": "Description",
+        "place": "University of Poitiers",
+        "start_year": "2014",
+        "end_year": "2017"
       }
     },
     "experience": {
       "title": "Expérience",
       "0": {
-        "title": "Master degree in computer science",
-        "description": "Description"
+        "title": "Software developper",
+        "description": "Description",
+        "place": "Chauray",
+        "start_year": "2014",
+        "end_year": "2017"
       },
       "1": {
-        "title": "Licence Informatique",
-        "description": "Description"
+        "title": "Intership",
+        "description": "Description",
+        "place": "Poitiers",
+        "start_year": "2014",
+        "end_year": "2017"
       }
     }
   }

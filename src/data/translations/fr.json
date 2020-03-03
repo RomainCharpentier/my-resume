@@ -14,22 +14,34 @@
       "title": "Education",
       "0": {
         "title": "Master Informatique",
-        "description": "Description"
+        "description": "Description",
+        "place": "University of Poitiers",
+        "start_year": "2017",
+        "end_year": "2019"
       },
       "1": {
         "title": "Licence Informatique",
-        "description": "Description"
+        "description": "Description",
+        "place": "University of Poitiers",
+        "start_year": "2014",
+        "end_year": "2017"
       }
     },
     "experience": {
       "title": "Experience",
       "0": {
-        "title": "Master Informatique",
-        "description": "Description"
+        "title": "Ingénieur développement",
+        "description": "Description",
+        "place": "Chauray",
+        "start_year": "2014",
+        "end_year": "2017"
       },
       "1": {
-        "title": "Licence Informatique",
-        "description": "Description"
+        "title": "Stagiaire",
+        "description": "Description",
+        "place": "Poitiers",
+        "start_year": "2014",
+        "end_year": "2017"
       }
     }
   }

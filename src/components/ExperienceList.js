@@ -9,14 +9,20 @@ const ExperienceList = props => {
     let key = `experience.${experiences.length}.title`;
     let item = {
         title: props.t(`${key}.title`),
-        description: props.t(`${key}.description`)
+        description: props.t(`${key}.description`),
+        place: props.t(`${key}.place`),
+        start_year: props.t(`${key}.start_year`),
+        end_year: props.t(`${key}.end_year`)
     };
     while (item.title !== props.t('experience.title')) {
         experiences.push(item);
         key = `experience.${experiences.length}`;
         item = {
             title: props.t(`${key}.title`),
-            description: props.t(`${key}.description`)
+            description: props.t(`${key}.description`),
+            place: props.t(`${key}.place`),
+            start_year: props.t(`${key}.start_year`),
+            end_year: props.t(`${key}.end_year`)
         };
     }
 
