@@ -13,7 +13,7 @@ const styles = (theme) => ({
         padding: 'inherit'
     },
     slider: {
-        height: '10px'
+        height: '10px',
     }
 });
 
@@ -45,11 +45,18 @@ class Skill extends Component {
             <Grid item className={classes.root} borderColor='primary.main'>
                 <div className={classes.div}>
                     <Typography variant='subtitle1'>{name}</Typography>
-                    <LinearProgress 
-                        variant='determinate'
-                        className={classes.slider}
-                        value={this.state.value}
-                    />
+                    <Grid container spacing={3} alignItems='center'>
+                        <Grid item xs={9}>
+                            <LinearProgress 
+                                variant='determinate'
+                                className={classes.slider}
+                                value={this.state.value}
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Typography variant='body2'>{this.state.value} %</Typography>
+                        </Grid>
+                    </Grid>
                 </div>
             </Grid>
         );

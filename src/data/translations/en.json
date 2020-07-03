@@ -2,7 +2,8 @@
     "home": {
       "title": "Home",
       "name": "Romain Charpentier",
-      "description": "I am Romain Charpentier, holding Master degree in computer science."
+      "description_1": "Passionate about IT development, I like to understand and discover new technologies.",
+      "description_2": "Holding a IT Master specializing in Software Design, I am continuing to learn with my professional experiences but also with self-taught training during my free time."
     },
     "skills": {
       "title": "Skills"

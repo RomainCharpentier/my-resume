@@ -2,7 +2,8 @@
     "home": {
       "title": "Accueil",
       "name": "Romain Charpentier",
-      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique."
+      "description_1": "Passionné de développement informatique, j’aime comprendre et découvrir de nouvelles technologies.",
+      "description_2": "Titulaire d'un Master Informatique spécialisé en Conception Logicielle, je continue désormais d'apprendre avec mes expériences professionnelles mais également avec une formation en autodidacte pendant mon temps libre."
     },
     "skills": {
       "title": "Compétences"

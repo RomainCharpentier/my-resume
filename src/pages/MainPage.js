@@ -30,6 +30,9 @@ const styles = (theme) => ({
     },
     sectionTitle: {
         textTransform: 'uppercase'
+    },
+    center: {
+        margin: 'auto'
     }
 });
 

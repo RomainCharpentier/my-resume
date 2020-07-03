@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, Avatar, Typography, IconButton, Fab } from '@material-ui/core';
+import { withStyles, Avatar, Typography, IconButton, Grid } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import background from '../assets/header_wallpaper.jpg';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -7,23 +7,23 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 const styles = (theme) => ({
-    'root': {
+    root: {
         background: '#161415 url(' + background + ') no-repeat center',
         backgroundSize: 'cover !important',
         height: '100vh',
         textAlign: '-webkit-center'
     },
-    'avatar': {
+    avatar: {
         width: theme.spacing(20),
         height: theme.spacing(20)
     },
-    'content': {
+    content: {
         position: 'relative',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%,-50%)'
     },
-    'appBar': {
+    appBar: {
         backgroundColor: 'transparent',
         boxShadow: 'none',
         alignItems: 'center',
@@ -31,14 +31,19 @@ const styles = (theme) => ({
             cursor: 'pointer'
         }
     },
-    'iconButton': {
+    iconButton: {
         '&:hover': {
             backgroundColor: 'transparent',
             color: theme.palette.info.light
         }
     },
-    'icon': {
+    icon: {
         fontSize: '30px'
+    },
+    text: {
+        width: '65%',
+        margin: 'auto',
+        lineHeight: '200%'
     }
 });
 
@@ -56,13 +61,20 @@ const Home = React.forwardRef((props, ref) => {
     return(
         <div className={classes.root} id="back-to-top-anchor" ref={ref}>
             <div className={classes.content}>
-                <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' className={classes.avatar} />
-                <Typography variant='h1'>
-                    {props.t('home.name')}
-                </Typography>
-                <Typography variant='h3'>
-                    {props.t('home.description')}
-                </Typography>
+                <div className={classes.text}>
+                    <Grid container alignItems="center" justify="center">
+                        <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' className={classes.avatar} />
+                    </Grid>
+                    <Typography variant='h1'>
+                        {props.t('home.name')}
+                    </Typography>
+                    <Typography variant='h3'>
+                        {props.t('home.description_1')}
+                    </Typography>
+                    <Typography variant='h4'>
+                        {props.t('home.description_2')}
+                    </Typography>
+                </div>
                 <div>
                     <IconButton href='https://www.linkedin.com/in/romain-charpentier' className={classes.iconButton}>
                         <LinkedInIcon className={classes.icon} />

@@ -11,10 +11,10 @@ export default class GitRepository extends Component {
 
     render() {
         return(
-            <React.Fragment>
+            <div>
                 <Link variant='subtitle1' href={this.props.repo.clone_url}>{this.props.repo.name}</Link>
                 <Typography variant='body2'>{this.props.repo.description}</Typography>
-            </React.Fragment>
+            </div>
         );
     }
 }
