@@ -8,6 +8,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import logo from '../assets/logo.svg';
 import Home from '../components/Home';
+import LangButton from '../components/LangButton';
 import EducationList from '../components/EducationList';
 import ExperienceList from '../components/ExperienceList';
 
@@ -30,6 +31,9 @@ const styles = (theme) => ({
     },
     sectionTitle: {
         textTransform: 'uppercase'
+    },
+    center: {
+        margin: 'auto'
     }
 });
 
@@ -112,14 +116,13 @@ class MainPage extends Component {
                         if (item.key%2!==0) className = `${classes.section} ${classes.section2}`;
                         if (item.key===0) className = ``;
                         return (
-                            <React.Fragment>
-                            <div className={className} ref={item.ref} id={`key${item.key}`}>
+                            <div className={className} key={item.key} ref={item.ref} id={`key${item.key}`}>
                                 {React.createElement(item.component, {className:classes.sectionTitle})}
                             </div>
-                            </React.Fragment>
                        )
                     })
                 }
+                <LangButton />
                 {/*<img src={logo} className='App-logo' alt='logo' />*/}
                 <ScrollTop {...this.props}>
                     <Fab color='primary' size='small' aria-label='scroll back to top'>

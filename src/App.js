@@ -33,12 +33,18 @@ class App extends React.Component {
                 h1: {
                     color: '#fff',
                     fontFamily: 'Times New Roman", Times, serif',
-                    fontSize: '3rem'
+                    fontSize: '3rem',
+                    textShadow: '0px 0px 10px rgba(0, 0, 0, 1)'
                 },
                 h3: {
                     color: '#fff',
                     fontFamily: 'caption',
                     fontSize: '1.5rem'
+                },
+                h4: {
+                    color: '#e3e3e3',
+                    fontFamily: 'caption',
+                    fontSize: '1.2rem'
                 },
                 h5: {
                     color: '#00ffff'
@@ -81,7 +87,7 @@ class App extends React.Component {
             page = <ConstructionPage />;
         }
         return (
-            <div className='App'>
+            <div className='App' id='app'>
                 <ThemeProvider theme={createMuiTheme(this.state.theme)}>
                     <CssBaseline />
                     {page}

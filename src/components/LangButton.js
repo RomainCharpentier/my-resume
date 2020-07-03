@@ -14,13 +14,14 @@ class LangButton extends Component {
 
     handleChange = event => {
         this.setState({
-            value: 'fr'
+            value: event.target.value
         });
         setLanguage(event.target.value);
     };
 
     render() {
         return (
+            <div>
             <RadioGroup
                 aria-label='language'
                 name='language1'
@@ -30,6 +31,7 @@ class LangButton extends Component {
                 <FormControlLabel value='fr' control={<Radio />} label='FR' />
                 <FormControlLabel value='en' control={<Radio />} label='EN' />
             </RadioGroup>
+            </div>
         );
     }
 }

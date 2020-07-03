@@ -4,12 +4,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { translate } from 'react-multi-lang';
 
 const styles = (theme) => ({
-    'nav' : { 
+    toolbar : { 
         backgroundColor: 'transparent !important',
         display: 'flex',
         flexDirection: 'row'
     },
-    'item': {
+    headerTitle: {
         '&:hover' : {
             color: '#F06000'
         },
@@ -20,7 +20,7 @@ const styles = (theme) => ({
         letterSpacing: '2.5px',
         margin: '10px'
     },
-    'appBar': {
+    appBar: {
         backgroundColor: 'transparent',
         boxShadow: 'none',
         alignItems: 'center',
@@ -28,8 +28,14 @@ const styles = (theme) => ({
             cursor: 'pointer'
         }
     },
-    'menuButton': {
+    mobileIconButton: {
         justifyContent: 'left',
+    },
+    'html:not([data-scroll=\'0\'])': {
+        toolbar: {
+            position: 'fixed',
+            backgroundColor: 'red !important'
+        }
     }
 });
 
@@ -61,10 +67,11 @@ const Header = props => {
         setAnchorEl(null);
     };
 
-    const mob1 = refs.map(value => (<Typography className={classes.item} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>));
-    const mob2 = (<IconButton edge="start" className={classes.menuButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
+    const webFormat = refs.map((value, key) => (<Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>));
+    const mobileFormat = (<IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
 
-    const [mobile, setMobile] = useState((width > 500) ? mob1 : mob2);
+    const MIN_WEB_WIDTH = 600;
+    const [headerContent, setHeaderContent] = useState((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat);
 
     const scroll = (ref) => {
         ref.current.scrollIntoView({behavior: 'smooth'});
@@ -74,10 +81,10 @@ const Header = props => {
         const resizeListener = () => {
             // change width from the state object
             setWidth(getWidth());
-            if (width > 500) {
-                setMobile(mob1);
+            if (width > MIN_WEB_WIDTH) {
+                setHeaderContent(webFormat);
             } else {
-                setMobile(mob2);
+                setHeaderContent(mobileFormat);
             }
             handleClose();
         };
@@ -94,8 +101,8 @@ const Header = props => {
     return(
         <HideOnScroll {...props}>
             <AppBar className={classes.appBar}>
-                <Toolbar className={classes.nav}>
-                    {mobile}
+                <Toolbar className={classes.toolbar}>
+                    {headerContent}
                     <Menu
                         anchorEl={anchorEl}
                         keepMounted
@@ -104,7 +111,7 @@ const Header = props => {
                     >
                         {refs.map(value => (
                             <MenuItem key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
-                                <Typography className={classes.item}>{props.t(`${value.title}.title`)}</Typography>
+                                <Typography className={classes.headerTitle}>{props.t(`${value.title}.title`)}</Typography>
                             </MenuItem>
                         ))}
                     </Menu>

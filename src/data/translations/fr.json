@@ -2,7 +2,8 @@
     "home": {
       "title": "Accueil",
       "name": "Romain Charpentier",
-      "description": "Je suis Romain Charpentier, titulaire d'un master en informatique."
+      "description_1": "Passionné de développement informatique, j’aime comprendre et découvrir de nouvelles technologies.",
+      "description_2": "Titulaire d'un Master Informatique spécialisé en Conception Logicielle, je continue désormais d'apprendre avec mes expériences professionnelles mais également avec une formation en autodidacte pendant mon temps libre."
     },
     "skills": {
       "title": "Compétences"
@@ -14,15 +15,15 @@
       "title": "Education",
       "0": {
         "title": "Master Informatique",
-        "description": "Description",
-        "place": "University of Poitiers",
+        "description": "Mention Bien. Parcours conception logicielle Liste des cours : - Architectures des Applications Web (JavaScript, Spring, AngularJS, Maven, Postman, Docker, ...) - Machine Learning (Octave, KNN, RNN, Kohonen, Bayes, ...) - Big Data (Talend, ETL) - Conception Orientée Objet (Java, C++, C#, PHP) - Théorie des langages et compilation (Flex, Bison) - Algorithmique (Optimisations, arbres, ...) - Informatique Graphique (WebGL, GLSL, RayTracing) - Programmation parallèle et répartie (Cuda, MPI) - Réseau (TCP, UDP, XDR, RMI) - IHM (Java, JavaFX)",
+        "place": "Université de Poitiers",
         "start_year": "2017",
         "end_year": "2019"
       },
       "1": {
         "title": "Licence Informatique",
-        "description": "Description",
-        "place": "University of Poitiers",
+        "description": "Mention Bien. Liste des cours : - Base de données (Oracle) - Programmation système (C, Linux) - Programmation Orientée Objet (Java, UML) - Web (PHP, CakePHP) - IHM (Java, Swing)",
+        "place": "Université de Poitiers",
         "start_year": "2014",
         "end_year": "2017"
       }
@@ -31,17 +32,24 @@
       "title": "Experience",
       "0": {
         "title": "Ingénieur développement",
-        "description": "Description",
+        "description": "Continuité du projet en CDI",
         "place": "Chauray",
-        "start_year": "2014",
-        "end_year": "2017"
+        "start_year": "Septembre 2019",
+        "end_year": "..."
       },
       "1": {
+        "title": "Alternant",
+        "description": "Continuité du projet en alternance avec M2 Informatique",
+        "place": "Chauray",
+        "start_year": "Septembre 2018",
+        "end_year": "Septembre 2019"
+      },
+      "2": {
         "title": "Stagiaire",
-        "description": "Description",
+        "description": "- Développement Back-End de traitements de masse automatisées en Java EE\n- Utilisation du framework client J2EE, Oracle, SVN, Maven, Jenkins, ...\n- Travail en équipe, accueil, formation et support pour les nouveaux développeurs\n- Rédaction de documentations techniques et fonctionnelles",
         "place": "Poitiers",
-        "start_year": "2014",
-        "end_year": "2017"
+        "start_year": "Juillet 2018",
+        "end_year": "Août 2018"
       }
     }
   }

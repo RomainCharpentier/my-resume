@@ -7,10 +7,11 @@ const Education = props => {
     return(
         <div>
             <Typography variant='subtitle1'>{props.title}</Typography>
-            <Typography variant='body2'>{props.place}</Typography>
-            <Typography variant='body2'>{props.start_year} - {props.end_year}</Typography>
-            <Typography variant='body2'>{props.description}</Typography>
-        </div >
+            <Typography variant='body2' style={{display: 'inline-block'}}>{props.place}</Typography>
+            <Typography variant='body2' style={{display: 'inline-block', margin: '0px 5px 0px 5px'}}>•</Typography>
+            <Typography variant='body2' style={{display: 'inline-block'}}>{props.start_year} - {props.end_year}</Typography>
+            <Typography variant='body2' style={{display: 'inline-block'}}>{props.description}</Typography>
+        </div>
     );
 };
 

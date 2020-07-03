@@ -1,47 +1,55 @@
 {
-    "home": {
-      "title": "Home",
-      "name": "Romain Charpentier",
-      "description": "I am Romain Charpentier, holding Master degree in computer science."
+  "home": {
+    "title": "Home",
+    "name": "Romain Charpentier",
+    "description_1": "Passionate about IT development, I like to understand and discover new technologies.",
+    "description_2": "Holding a IT Master specializing in Software Design, I am continuing to learn with my professional experiences but also with self-taught training during my free time."
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "git": {
+    "title": "Git"
+  },
+  "education": {
+    "title": "Education",
+    "0": {
+      "title": "Master IT",
+      "description": "Software design",
+      "place": "University of Poitiers",
+      "start_year": "2017",
+      "end_year": "2019"
     },
-    "skills": {
-      "title": "Skills"
+    "1": {
+      "title": "Bachelor IT",
+      "description": "General IT",
+      "place": "University of Poitiers",
+      "start_year": "2014",
+      "end_year": "2017"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "0": {
+      "title": " Development engineer",
+      "description": "Continuity of the project in permanent contract",
+      "place": "Chauray",
+      "start_year": "September 2019",
+      "end_year": "..."
     },
-    "git": {
-      "title": "Git"
+    "1": {
+      "title": " Poste Sandwich course student",
+      "description": "Continuity of the project in 1-year sandwich course (IT Master Degree)",
+      "place": "Chauray",
+      "start_year": "September 2018",
+      "end_year": "September 2019"
     },
-    "education": {
-      "title": "Education",
-      "0": {
-        "title": "Master degree in computer science",
-        "description": "Description",
-        "place": "University of Poitiers",
-        "start_year": "2014",
-        "end_year": "2017"
-      },
-      "1": {
-        "title": "Licence Informatique",
-        "description": "Description",
-        "place": "University of Poitiers",
-        "start_year": "2014",
-        "end_year": "2017"
-      }
-    },
-    "experience": {
-      "title": "Expérience",
-      "0": {
-        "title": "Software developper",
-        "description": "Description",
-        "place": "Chauray",
-        "start_year": "2014",
-        "end_year": "2017"
-      },
-      "1": {
-        "title": "Intership",
-        "description": "Description",
-        "place": "Poitiers",
-        "start_year": "2014",
-        "end_year": "2017"
-      }
+    "2": {
+      "title": " Intern",
+      "description": "- Back-end development of batch processing in Java EE - Client frameworkJ2EE, Oracle, SVN, Maven, Jenkins, ... - Teamwork, welcome, training and support for new developers - Drafting of technical and functional documentation",
+      "place": "Poitiers",
+      "start_year": "July 2018",
+      "end_year": "August 2018"
     }
   }
+}

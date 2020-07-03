@@ -6,14 +6,15 @@ const styles = (theme) => ({
         width: '300px',
         '& > * + *': {
             marginTop: theme.spacing(2)
-        }
+        },
+        borderColor: theme.palette.primary.main
     },
     div: {
         border: 'solid ' + theme.palette.primary.dark,
         padding: 'inherit'
     },
     slider: {
-        height: '10px'
+        height: '10px',
     }
 });
 
@@ -42,14 +43,21 @@ class Skill extends Component {
         const { classes, name } = this.props;
 
         return (
-            <Grid item className={classes.root} borderColor='primary.main'>
+            <Grid item className={classes.root}>
                 <div className={classes.div}>
                     <Typography variant='subtitle1'>{name}</Typography>
-                    <LinearProgress 
-                        variant='determinate'
-                        className={classes.slider}
-                        value={this.state.value}
-                    />
+                    <Grid container spacing={3} alignItems='center'>
+                        <Grid item xs={9}>
+                            <LinearProgress 
+                                variant='determinate'
+                                className={classes.slider}
+                                value={this.state.value}
+                            />
+                        </Grid>
+                        <Grid item xs={3}>
+                            <Typography variant='body2'>{this.state.value} %</Typography>
+                        </Grid>
+                    </Grid>
                 </div>
             </Grid>
         );

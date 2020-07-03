@@ -29,7 +29,7 @@ const EducationList = props => {
     return(
         <React.Fragment>
             <Typography variant='h5' className={props.className}>{props.t('education.title')}</Typography>
-            {educations.map(item => <Education {...item} />)}
+            {educations.map((item, key) => <Education {...item} key={key} />)}
         </React.Fragment>
     );
 };

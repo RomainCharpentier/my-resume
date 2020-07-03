@@ -29,7 +29,7 @@ const ExperienceList = props => {
     return(
         <React.Fragment>
             <Typography variant='h5' className={props.className}>{props.t('experience.title')}</Typography>
-            {experiences.map(item => <Experience {...item} />)}
+            {experiences.map((item, key) => <Experience {...item} key={key} />)}
         </React.Fragment>
     );
 };
