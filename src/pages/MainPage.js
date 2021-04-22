@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GitRepositoryList from '../components/GitRepositoryList';
 import Header from '../components/Header';
 import { translate } from 'react-multi-lang';
-import { Box, Container, Divider, withStyles, useScrollTrigger, Zoom, Fab } from '@material-ui/core';
+import { Box, Container, Divider, withStyles, useScrollTrigger, Zoom, Fab, Typography } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import logo from '../assets/logo.svg';
@@ -117,12 +117,13 @@ class MainPage extends Component {
                         if (item.key===0) className = ``;
                         return (
                             <div className={className} key={item.key} ref={item.ref} id={`key${item.key}`}>
+                                {item.key > 0 && <Typography variant='h5' style={{marginBottom:'10px'}}>{t(`${item.title}.title`).toUpperCase()}</Typography>}
                                 {React.createElement(item.component, {className:classes.sectionTitle})}
                             </div>
                        )
                     })
                 }
-                <LangButton />
+                {/* <LangButton /> */}
                 {/*<img src={logo} className='App-logo' alt='logo' />*/}
                 <ScrollTop {...this.props}>
                     <Fab color='primary' size='small' aria-label='scroll back to top'>

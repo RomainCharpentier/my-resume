@@ -6,8 +6,13 @@ import { translate } from 'react-multi-lang';
 const styles = (theme) => ({
     toolbar : { 
         backgroundColor: 'transparent !important',
+        width: '100%',
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    background : { 
+        backgroundColor: 'red !important',
     },
     headerTitle: {
         '&:hover' : {
@@ -39,7 +44,7 @@ const styles = (theme) => ({
     }
 });
 
-function HideOnScroll(props) {
+const HideOnScroll = (props) => {
     const { children, window } = props;
     const trigger = useScrollTrigger({ target: window ? window() : undefined });
 
@@ -56,6 +61,7 @@ const getWidth = () => window.innerWidth || document.documentElement.clientWidth
 const Header = props => {
     const { classes, refs } = props;
     const [width, setWidth] = useState(getWidth());
+    const [scrollY, setScrollY] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const open = Boolean(anchorEl);
@@ -71,6 +77,7 @@ const Header = props => {
     const mobileFormat = (<IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
 
     const MIN_WEB_WIDTH = 600;
+    const MIN_BACKGROUND_BAR = 900;
     const [headerContent, setHeaderContent] = useState((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat);
 
     const scroll = (ref) => {
@@ -91,17 +98,25 @@ const Header = props => {
         // set resize listener
         window.addEventListener('resize', resizeListener);
         
+        const scrollListener = () => {
+            setScrollY(window.scrollY);
+        };
+        window.addEventListener('scroll', scrollListener);
+        
         // clean up function
         return () => {
             // remove resize listener
             window.removeEventListener('resize', resizeListener);
+            window.removeEventListener('scroll', scrollListener);
         }
     });
+
+    const tmp = scrollY > MIN_BACKGROUND_BAR ? classes.background : '';
 
     return(
         <HideOnScroll {...props}>
             <AppBar className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
+                <Toolbar className={`${classes.toolbar} ${tmp}`}>
                     {headerContent}
                     <Menu
                         anchorEl={anchorEl}
@@ -110,8 +125,8 @@ const Header = props => {
                         onClose={handleClose}
                     >
                         {refs.map(value => (
-                            <MenuItem key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
-                                <Typography className={classes.headerTitle}>{props.t(`${value.title}.title`)}</Typography>
+                            <MenuItem className={classes.headerTitle} key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
+                                <Typography>{props.t(`${value.title}.title`)}</Typography>
                             </MenuItem>
                         ))}
                     </Menu>

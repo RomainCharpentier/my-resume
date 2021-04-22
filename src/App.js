@@ -13,7 +13,7 @@ const styles = {
 class App extends React.Component {
 
     constructor(props) {
-        super(props);
+        super();
         this.state = {
           theme: {
             palette: {
