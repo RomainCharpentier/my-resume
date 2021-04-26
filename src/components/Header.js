@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { withStyles, Typography, useScrollTrigger, Slide, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { withStyles, Typography, useScrollTrigger, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { translate } from 'react-multi-lang';
 
 const styles = (theme) => ({
     toolbar : { 
-        backgroundColor: 'transparent !important',
         width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center'
-    },
-    background : { 
-        backgroundColor: 'red !important',
     },
     headerTitle: {
         '&:hover' : {
@@ -26,7 +22,6 @@ const styles = (theme) => ({
         margin: '10px'
     },
     appBar: {
-        backgroundColor: 'transparent',
         boxShadow: 'none',
         alignItems: 'center',
         '&:hover': {
@@ -35,33 +30,34 @@ const styles = (theme) => ({
     },
     mobileIconButton: {
         justifyContent: 'left',
-    },
-    'html:not([data-scroll=\'0\'])': {
-        toolbar: {
-            position: 'fixed',
-            backgroundColor: 'red !important'
-        }
+        position: 'absolute',
+        right: '0px'
     }
 });
 
-const HideOnScroll = (props) => {
-    const { children, window } = props;
-    const trigger = useScrollTrigger({ target: window ? window() : undefined });
-
-    return (
-        <Slide appear={false} direction="down" in={!trigger}>
-            {children}
-        </Slide>
-    );
+const ElevationScroll = (props) => {
+    const { children, window, mobile } = props;
+    const trigger = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 0,
+        target: window ? window() : undefined,
+    });
+  
+    return React.cloneElement(children, {
+      elevation: !mobile && trigger ? 4 : 0,
+      style:{
+        backgroundColor: !mobile && trigger ? "" : "transparent",
+      }
+    });
 }
 
 // Window width
+const MIN_WEB_WIDTH = 600;
 const getWidth = () => window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
 const Header = props => {
     const { classes, refs } = props;
     const [width, setWidth] = useState(getWidth());
-    const [scrollY, setScrollY] = useState(0);
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const open = Boolean(anchorEl);
@@ -76,8 +72,6 @@ const Header = props => {
     const webFormat = refs.map((value, key) => (<Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>));
     const mobileFormat = (<IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
 
-    const MIN_WEB_WIDTH = 600;
-    const MIN_BACKGROUND_BAR = 900;
     const [headerContent, setHeaderContent] = useState((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat);
 
     const scroll = (ref) => {
@@ -98,25 +92,17 @@ const Header = props => {
         // set resize listener
         window.addEventListener('resize', resizeListener);
         
-        const scrollListener = () => {
-            setScrollY(window.scrollY);
-        };
-        window.addEventListener('scroll', scrollListener);
-        
         // clean up function
         return () => {
             // remove resize listener
             window.removeEventListener('resize', resizeListener);
-            window.removeEventListener('scroll', scrollListener);
         }
     });
 
-    const tmp = scrollY > MIN_BACKGROUND_BAR ? classes.background : '';
-
     return(
-        <HideOnScroll {...props}>
+        <ElevationScroll {...props} mobile={width <= MIN_WEB_WIDTH}>
             <AppBar className={classes.appBar}>
-                <Toolbar className={`${classes.toolbar} ${tmp}`}>
+                <Toolbar variant="dense">
                     {headerContent}
                     <Menu
                         anchorEl={anchorEl}
@@ -132,7 +118,7 @@ const Header = props => {
                     </Menu>
                 </Toolbar>
             </AppBar>
-        </HideOnScroll>
+        </ElevationScroll>
     );
 };
 

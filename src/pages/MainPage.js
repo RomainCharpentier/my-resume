@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 import GitRepositoryList from '../components/GitRepositoryList';
 import Header from '../components/Header';
 import { translate } from 'react-multi-lang';
-import { Box, Container, Divider, withStyles, useScrollTrigger, Zoom, Fab, Typography } from '@material-ui/core';
+import { withStyles, useScrollTrigger, Zoom, Fab, Typography } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
-import logo from '../assets/logo.svg';
 import Home from '../components/Home';
-import LangButton from '../components/LangButton';
 import EducationList from '../components/EducationList';
 import ExperienceList from '../components/ExperienceList';
 

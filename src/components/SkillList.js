@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import Skill from './Skill.js';
 import skills from '../data/skills.json';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Typography, Grid, Button } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 import { translate } from 'react-multi-lang';
 import GitRepository from './GitRepository.js';
 
@@ -10,13 +10,13 @@ const GitRepositoryList = props => {
 
     useEffect(() => {
         axios.get(`https://api.github.com/users/RomainCharpentier/repos`)
-        .then(response => {
-            setRepos(response.data);
-        })
-        .catch(error => {
-            console.log('Error fetching and parsing data', error);
-        });
-    });
+            .then(response => {
+                setRepos(response.data);
+            })
+            .catch(error => {
+                console.log('Error fetching and parsing data', error);
+            });
+    }, []);
 
     let items;
     if (repos && repos.length > 0) {

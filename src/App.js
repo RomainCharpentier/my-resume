@@ -1,14 +1,10 @@
 import React from 'react';
 import './App.css';
 import { translate, setLanguage } from 'react-multi-lang';
-import { CssBaseline, ThemeProvider, createMuiTheme, withStyles } from '@material-ui/core';
+import { CssBaseline, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import ConstructionPage from './pages/ConstructionPage';
 import Footer from './components/Footer';
-
-const styles = {
-    
-}
 
 class App extends React.Component {
 

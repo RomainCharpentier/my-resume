@@ -9,7 +9,7 @@ const styles = (theme) => ({
         margin: '5px 5px'
     },
     media: {
-        height: 140,
+        height: '140px'
     }
 });
 
@@ -36,7 +36,7 @@ const GitRepository = props => {
                 <CardMedia
                     className={classes.media}
                     image={image}
-                    title={props.repo.name}
+                    title={props.repo.name} 
                 />
             </CardActionArea>
             <CardContent>
