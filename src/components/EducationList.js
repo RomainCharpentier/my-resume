@@ -1,5 +1,4 @@
 import React from 'react';
-import { translate } from 'react-multi-lang';
 import Education from './Education';
 import { getLanguage } from '../utils.js';
 import model from '../models/experience';
@@ -14,4 +13,4 @@ const EducationList = props => {
     );
 };
 
-export default translate(EducationList);
+export default EducationList;

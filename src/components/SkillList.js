@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { translate } from 'react-multi-lang';
 import Skill from './Skill.js';
 import skills from '../data/skills.json';
 
@@ -15,4 +14,4 @@ const SkillList = props => {
     );
 };
 
-export default translate(SkillList);
+export default SkillList;

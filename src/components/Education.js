@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { withStyles, Typography, Grid } from '@material-ui/core';
-import { translate } from 'react-multi-lang';
 import ShowMoreText from './ShowMoreText';
 
 const styles = (theme) => ({
@@ -39,10 +38,10 @@ const Education = props => {
                 <Typography variant='body2' style={{display: 'inline-block', margin: '0px 5px 0px 5px'}}>•</Typography>
                 <Typography variant='body2' style={{display: 'inline-block'}}>{props.start_year} - {props.end_year}</Typography>
                 {/* {props.description && props.description.split('\n').map(line => <Typography variant='body2'>{line}</Typography>)} */}
-                <ShowMoreText numberOfLines={2} textArray={props.description.split('\n')}/>
+                <ShowMoreText numberOfLines={3} textArray={props.description.split('\n')}/>
             </Grid>
         </Grid>
     );
 };
 
-export default withStyles(styles)(translate(Education));
+export default withStyles(styles)(Education);

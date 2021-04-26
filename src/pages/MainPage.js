@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GitRepositoryList from '../components/GitRepositoryList';
 import Header from '../components/Header';
-import { translate } from 'react-multi-lang';
 import { withStyles, useScrollTrigger, Zoom, Fab, Typography } from '@material-ui/core';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import Home from '../components/Home';
 import EducationList from '../components/EducationList';
 import ExperienceList from '../components/ExperienceList';
+import { getLanguage } from '../utils.js';
 
 const styles = (theme) => ({
     copyRight: {
@@ -104,7 +104,7 @@ const data = {
 class MainPage extends Component {
 
     render() {
-        const { classes, t } = this.props;
+        const { classes } = this.props;
         return(
             <React.Fragment>
                 <Header refs={data.content} />
@@ -115,7 +115,7 @@ class MainPage extends Component {
                         if (item.key===0) className = ``;
                         return (
                             <div className={className} key={item.key} ref={item.ref} id={`key${item.key}`}>
-                                {item.key > 0 && <Typography variant='h5' style={{marginBottom:'10px'}}>{t(`${item.title}.title`).toUpperCase()}</Typography>}
+                                {item.key > 0 && <Typography variant='h5' style={{marginBottom:'10px'}}>{getLanguage('fr',`${item.title}.title`).toUpperCase()}</Typography>}
                                 {React.createElement(item.component, {className:classes.sectionTitle})}
                             </div>
                        )
@@ -133,4 +133,4 @@ class MainPage extends Component {
     }
 }
 
-export default withStyles(styles)(translate(MainPage));
+export default withStyles(styles)(MainPage);

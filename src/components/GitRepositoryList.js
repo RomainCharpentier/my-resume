@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Grid, Button } from '@material-ui/core';
-import { translate } from 'react-multi-lang';
 import GitRepository from './GitRepository.js';
 
 const GitRepositoryList = props => {
@@ -34,4 +33,4 @@ const GitRepositoryList = props => {
     );
 };
 
-export default translate(GitRepositoryList);
+export default GitRepositoryList;

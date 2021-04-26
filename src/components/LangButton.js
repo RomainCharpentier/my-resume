@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { setLanguage } from 'react-multi-lang';
 import { RadioGroup, Radio, FormControlLabel } from '@material-ui/core';
 
 class LangButton extends Component {
@@ -16,7 +15,7 @@ class LangButton extends Component {
         this.setState({
             value: event.target.value
         });
-        setLanguage(event.target.value);
+        // setLanguage(event.target.value);
     };
 
     render() {

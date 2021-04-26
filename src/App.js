@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { translate, setLanguage } from 'react-multi-lang';
 import { CssBaseline, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import MainPage from './pages/MainPage';
 import ConstructionPage from './pages/ConstructionPage';
@@ -56,9 +55,9 @@ class App extends React.Component {
         };
         this.toggleDarkTheme.bind(this);
         if (navigator.language.indexOf('fr') > -1) {
-            setLanguage('fr');
+            // setLanguage('fr');
         } else {
-            setLanguage('en');
+            // setLanguage('en');
         }
     }
 
@@ -94,4 +93,4 @@ class App extends React.Component {
     }
 }
 
-export default translate(App);
+export default App;
