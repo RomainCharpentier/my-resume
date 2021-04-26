@@ -1,10 +1,10 @@
 import React from 'react';
 import { withStyles, Avatar, Typography, IconButton, Grid } from '@material-ui/core';
-import { translate } from 'react-multi-lang';
 import background from '../assets/header_wallpaper.jpg';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import { getLanguage } from '../utils.js';
 
 const styles = (theme) => ({
     root: {
@@ -66,13 +66,13 @@ const Home = React.forwardRef((props, ref) => {
                         <Avatar src='https://avatars2.githubusercontent.com/u/35954925?s=460&v=4' className={classes.avatar} />
                     </Grid>
                     <Typography variant='h1'>
-                        {props.t('home.name')}
+                        {getLanguage('fr','home.name')}
                     </Typography>
                     <Typography variant='h3'>
-                        {props.t('home.description_1')}
+                        {getLanguage('fr','home.description_1')}
                     </Typography>
                     <Typography variant='h4'>
-                        {props.t('home.description_2')}
+                        {getLanguage('fr','home.description_2')}
                     </Typography>
                 </div>
                 <div>
@@ -91,4 +91,4 @@ const Home = React.forwardRef((props, ref) => {
     );
 });
 
-export default withStyles(styles)(translate(Home));
+export default withStyles(styles)(Home);

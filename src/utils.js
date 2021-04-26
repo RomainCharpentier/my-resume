@@ -40,9 +40,13 @@ export function getLanguage(language, keys, model) {
         }
         return model;
     }
-    if (json.length) {
-        return json.map(value => convertToJsonToModel(value, {...model}));
+    if (model) {
+        if (json.length) {
+            return json.map(value => convertToJsonToModel(value, {...model}));
+        } else {
+            return convertToJsonToModel(json, {...model});
+        }
     } else {
-        return convertToJsonToModel(json, {...model});
+        return json;
     }
 }

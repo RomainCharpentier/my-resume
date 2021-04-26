@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withStyles, Typography, useScrollTrigger, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { translate } from 'react-multi-lang';
+import { getLanguage } from '../utils.js';
 
 const styles = (theme) => ({
     toolbar : { 
@@ -69,7 +69,7 @@ const Header = props => {
         setAnchorEl(null);
     };
 
-    const webFormat = refs.map((value, key) => (<Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>{props.t(`${value.title}.title`)}</Typography>));
+    const webFormat = refs.map((value, key) => (<Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>{getLanguage('fr',`${value.title}.title`)}</Typography>));
     const mobileFormat = (<IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
 
     const [headerContent, setHeaderContent] = useState((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat);
@@ -112,7 +112,7 @@ const Header = props => {
                     >
                         {refs.map(value => (
                             <MenuItem className={classes.headerTitle} key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
-                                <Typography>{props.t(`${value.title}.title`)}</Typography>
+                                <Typography>{getLanguage('fr',`${value.title}.title`)}</Typography>
                             </MenuItem>
                         ))}
                     </Menu>
@@ -122,4 +122,4 @@ const Header = props => {
     );
 };
 
-export default withStyles(styles)(translate(Header));
+export default withStyles(styles)(Header);
