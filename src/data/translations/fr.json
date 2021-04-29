@@ -19,6 +19,7 @@
           "description": "Mention Bien. Parcours conception logicielle\nListe des cours :\n- Architectures des Applications Web (JavaScript, Spring, AngularJS, Maven, Postman, Docker, ...)\n- Machine Learning (Octave, KNN, RNN, Kohonen, Bayes, ...)\n- Big Data (Talend, ETL)\n- Conception Orientée Objet (Java, C++, C#, PHP)\n- Théorie des langages et compilation (Flex, Bison)\n- Algorithmique (Optimisations, arbres, ...)\n- Informatique Graphique (WebGL, GLSL, RayTracing)\n- Programmation parallèle et répartie (Cuda, MPI)\n- Réseau (TCP, UDP, XDR, RMI)\n- IHM (Java, JavaFX)",
           "place": "Poitiers",
           "company": "Université de Poitiers",
+          "mention": "Bien",
           "start_year": "2017",
           "end_year": "2019"
         },
@@ -27,6 +28,7 @@
           "description": "Mention Bien. Liste des cours :\n- Base de données (Oracle)\n- Programmation système (C, Linux)\n- Programmation Orientée Objet (Java, UML)\n- Web (PHP, CakePHP)\n- IHM (Java, Swing)",
           "place": "Poitiers",
           "company": "Université de Poitiers",
+          "mention": "Bien",
           "start_year": "2014",
           "end_year": "2017"
         }
@@ -54,7 +56,7 @@
         {
           "title": "Stagiaire",
           "description": "- Développement Back-End de traitements de masse automatisées en Java EE\n- Utilisation du framework client J2EE, Oracle, SVN, Maven, Jenkins, ...\n- Travail en équipe, accueil, formation et support pour les nouveaux développeurs\n- Rédaction de documentations techniques et fonctionnelles",
-          "place": "Poitiers",
+          "place": "Chauray",
           "company": "Cat-Amania",
           "start_year": "Juillet 2018",
           "end_year": "Août 2018"

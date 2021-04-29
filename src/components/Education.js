@@ -13,6 +13,7 @@ const styles = (theme) => ({
     },
     image: {
         maxWidth: 'inherit',
+        maxHeight: '100px'
     },
 });
 
