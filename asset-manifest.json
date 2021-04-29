@@ -1,30 +1,31 @@
 {
   "files": {
     "main.css": "/My-Resume/static/css/main.3a38ef5f.chunk.css",
-    "main.js": "/My-Resume/static/js/main.87789303.chunk.js",
-    "main.js.map": "/My-Resume/static/js/main.87789303.chunk.js.map",
+    "main.js": "/My-Resume/static/js/main.fb6ee4db.chunk.js",
+    "main.js.map": "/My-Resume/static/js/main.fb6ee4db.chunk.js.map",
     "runtime-main.js": "/My-Resume/static/js/runtime-main.fb49251f.js",
     "runtime-main.js.map": "/My-Resume/static/js/runtime-main.fb49251f.js.map",
-    "static/js/2.65e2c5f8.chunk.js": "/My-Resume/static/js/2.65e2c5f8.chunk.js",
-    "static/js/2.65e2c5f8.chunk.js.map": "/My-Resume/static/js/2.65e2c5f8.chunk.js.map",
+    "static/js/2.221109d4.chunk.js": "/My-Resume/static/js/2.221109d4.chunk.js",
+    "static/js/2.221109d4.chunk.js.map": "/My-Resume/static/js/2.221109d4.chunk.js.map",
     "index.html": "/My-Resume/index.html",
-    "precache-manifest.37844a3b585a2ad1e145964881eebae2.js": "/My-Resume/precache-manifest.37844a3b585a2ad1e145964881eebae2.js",
+    "precache-manifest.3ed6d4d0b8fd0b35e02c3d39bf14adee.js": "/My-Resume/precache-manifest.3ed6d4d0b8fd0b35e02c3d39bf14adee.js",
     "service-worker.js": "/My-Resume/service-worker.js",
     "static/css/main.3a38ef5f.chunk.css.map": "/My-Resume/static/css/main.3a38ef5f.chunk.css.map",
-    "static/js/2.65e2c5f8.chunk.js.LICENSE.txt": "/My-Resume/static/js/2.65e2c5f8.chunk.js.LICENSE.txt",
+    "static/js/2.221109d4.chunk.js.LICENSE.txt": "/My-Resume/static/js/2.221109d4.chunk.js.LICENSE.txt",
     "static/media/android.png": "/My-Resume/static/media/android.9709426e.png",
     "static/media/angular.png": "/My-Resume/static/media/angular.1a632d2b.png",
     "static/media/default.png": "/My-Resume/static/media/default.0e97eb49.png",
     "static/media/discord.png": "/My-Resume/static/media/discord.01b1e436.png",
     "static/media/header_wallpaper.jpg": "/My-Resume/static/media/header_wallpaper.3467c903.jpg",
-    "static/media/logo.svg": "/My-Resume/static/media/logo.5d5d9eef.svg",
     "static/media/react.png": "/My-Resume/static/media/react.638be909.png",
-    "static/media/under_construction.png": "/My-Resume/static/media/under_construction.ba4c2dda.png"
+    "static/media/under_construction.png": "/My-Resume/static/media/under_construction.ba4c2dda.png",
+    "static/media/universite.png": "/My-Resume/static/media/universite.6adb748c.png",
+    "static/media/xlim.png": "/My-Resume/static/media/xlim.09247404.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fb49251f.js",
-    "static/js/2.65e2c5f8.chunk.js",
+    "static/js/2.221109d4.chunk.js",
     "static/css/main.3a38ef5f.chunk.css",
-    "static/js/main.87789303.chunk.js"
+    "static/js/main.fb6ee4db.chunk.js"
   ]
 }
