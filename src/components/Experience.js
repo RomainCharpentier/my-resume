@@ -1,19 +1,19 @@
 import React, { useMemo } from 'react';
-import { withStyles, Typography, Grid, Box } from '@material-ui/core';
+import { withStyles, Typography, Box } from '@material-ui/core';
 import ShowMoreText from './ShowMoreText';
 
 const styles = (theme) => ({
     root: {
-        flexGrow: 1,
-        justifyContent: 'center'
-    },
-    paper: {
-        height: 140,
-        width: '100',
+        marginLeft: '35%'
     },
     image: {
-        maxWidth: 'inherit',
-        maxHeight: '100px'
+        maxWidth: '150px',
+        maxHeight: 'auto'
+    },
+    text: {
+        marginLeft: '5%',
+        height: 140,
+        textAlign: 'left'
     },
 });
 
@@ -29,15 +29,15 @@ const Experience = props => {
     }, [name]);
 
     return(
-        <Box display="flex" justifyContent="center" m={1} p={1}>
+        <Box display="flex" justifyContent="left" m={1} p={1} className={classes.root}>
             <Box p={1}>
                 <img src={image} alt='Logo' className={classes.image} />
             </Box>
-            <Box p={1}>
+            <Box p={1} className={classes.text}>
                 <Typography variant='subtitle1'>{props.title}</Typography>
-                <Typography variant='body2' style={{display: 'inline-block'}}>{props.place}</Typography>
-                <Typography variant='body2' style={{display: 'inline-block', margin: '0px 5px 0px 5px'}}>•</Typography>
-                <Typography variant='body2' style={{display: 'inline-block'}}>{props.start_year} - {props.end_year}</Typography>
+                <Typography variant='caption' style={{display: 'inline-block'}}>{props.place}</Typography>
+                <Typography variant='caption' style={{display: 'inline-block', margin: '0px 5px 0px 5px'}}>•</Typography>
+                <Typography variant='caption' style={{display: 'inline-block'}}>{props.start_year} - {props.end_year}</Typography>
                 {/* {props.description && props.description.split('\n').map(line => <Typography variant='body2'>{line}</Typography>)} */}
                 <ShowMoreText numberOfLines={3} textArray={props.description.split('\n')}/>
             </Box>
