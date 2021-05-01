@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link, Typography, Card, CardMedia, CardActionArea, CardContent, CardActions, Button, withStyles } from '@material-ui/core';
+import { importImage } from '../utils.js';
 
 const styles = (theme) => ({
     root: {
@@ -22,13 +23,7 @@ export function compare (a, b) {
 const GitRepository = props => {
     const { classes } = props;
     const name = useMemo(() => props.repo.description ? props.repo.description.split(' ')[0].split(',')[0].toLowerCase() : '', [props.repo.description]);
-    const image = useMemo(() => {
-        try {
-            return require(`../assets/git/${name}.png`);
-        } catch (ex) {
-            return require('../assets/git/default.png');
-        }
-    }, [name]);
+    const image = useMemo(() => importImage(`git/${name}.png`), [name]);
 
     return(
         <Card className={classes.root}>

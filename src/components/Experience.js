@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { withStyles, Typography, Box } from '@material-ui/core';
 import ShowMoreText from './ShowMoreText';
+import { importImage } from '../utils.js';
 
 const styles = (theme) => ({
     root: {
@@ -20,13 +21,7 @@ const styles = (theme) => ({
 const Experience = props => {
     const { classes } = props;
     const name = useMemo(() => props.place ? props.place.split(' ')[0].split(',')[0].toLowerCase() : '', [props.place]);
-    const image = useMemo(() => {
-        try {
-            return require(`../assets/logo/${name}.png`);
-        } catch (ex) {
-            return require('../assets/logo/cat-amania.png');
-        }
-    }, [name]);
+    const image = useMemo(() => importImage(`logo/${name}.png`), [name]);
 
     return(
         <Box display="flex" justifyContent="left" m={1} p={1} className={classes.root}>

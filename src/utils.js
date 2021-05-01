@@ -2,11 +2,11 @@ import fr from './data/translations/fr.json';
 import en from './data/translations/en.json';
 
 export const importImage = (name) => {
-    // try {
-    //     return require(`./assets/${name}.png`);
-    // } catch (ex) {
-    //     return require('./assets/default.png');
-    // }
+    try {
+        return require(`./assets/${name}.png`);
+    } catch (ex) {
+        return require('./assets/default.png');
+    }
 }
 
 export const readJsonData = (name, model, t) => {
