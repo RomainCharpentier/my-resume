@@ -4,11 +4,13 @@ import { getLanguage } from '../utils.js';
 import model from '../models/experience';
 
 const ExperienceList = props => {
-    const experiences = getLanguage('fr', 'experience.values', model);
+    const { data } = props;
+    const experiences = getLanguage('fr', `${data}.values`, model);
+    console.log(experiences)
 
     return(
         <React.Fragment>
-            {experiences.map((item, key) => <Experience {...item} key={key} />)}
+            {experiences && experiences.length && experiences.map((item, key) => <Experience {...item} key={key} />)}
         </React.Fragment>
     );
 };

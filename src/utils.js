@@ -3,8 +3,9 @@ import en from './data/translations/en.json';
 
 export const importImage = (name) => {
     try {
-        return require(`./assets/${name}.png`);
+        return require(`./assets/${name}`);
     } catch (ex) {
+        console.log(ex)
         return require('./assets/default.png');
     }
 }

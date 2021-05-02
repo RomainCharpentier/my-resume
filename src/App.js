@@ -20,8 +20,7 @@ class App extends React.Component {
                 },
                 textColor: '#fff',
                 primary: {
-                    main: '#1976d2',
-                    dark: '#fff'
+                    main: '#1976d2'
                 },
             },
             typography: {

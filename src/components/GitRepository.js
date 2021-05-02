@@ -4,7 +4,7 @@ import { importImage } from '../utils.js';
 
 const styles = (theme) => ({
     root: {
-        width: 400,
+        width: '20%',
         height: 300,
         border: 'solid',
         margin: '5px 5px'

@@ -6,7 +6,6 @@ import { withStyles, useScrollTrigger, Zoom, Fab, Typography } from '@material-u
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import SkillList from '../components/SkillList';
 import Home from '../components/Home';
-import EducationList from '../components/EducationList';
 import ExperienceList from '../components/ExperienceList';
 import { getLanguage } from '../utils.js';
 
@@ -36,8 +35,7 @@ const styles = (theme) => ({
 });
 
 const ScrollTop = props => {
-    const { children, window } = props;
-    const classes = props.classes;
+    const { children, window, classes } = props;
     const trigger = useScrollTrigger({
         target: window ? window() : undefined,
         disableHysteresis: true,
@@ -90,7 +88,7 @@ const data = {
             key: 3,
             title: 'education',
             ref: React.createRef(),
-            component: EducationList
+            component: ExperienceList
         },
         {
             key: 4,
@@ -116,7 +114,7 @@ class MainPage extends Component {
                         return (
                             <div className={className} key={item.key} ref={item.ref} id={`key${item.key}`}>
                                 {item.key > 0 && <Typography variant='h5' style={{marginBottom:'10px'}}>{getLanguage('fr',`${item.title}.title`).toUpperCase()}</Typography>}
-                                {React.createElement(item.component, {className:classes.sectionTitle})}
+                                {React.createElement(item.component, {className:classes.sectionTitle, data:item.title})}
                             </div>
                        )
                     })
@@ -124,7 +122,7 @@ class MainPage extends Component {
                 {/* <LangButton /> */}
                 {/*<img src={logo} className='App-logo' alt='logo' />*/}
                 <ScrollTop {...this.props}>
-                    <Fab color='primary' size='small' aria-label='scroll back to top'>
+                    <Fab color='primary' style={{'&:hover':{color: 'red'}}} size='small' aria-label='scroll back to top'>
                         <KeyboardArrowUpIcon />
                     </Fab>
                 </ScrollTop>

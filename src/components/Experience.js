@@ -5,7 +5,8 @@ import { importImage } from '../utils.js';
 
 const styles = (theme) => ({
     root: {
-        marginLeft: '35%'
+        margin: '0 auto',
+        maxWidth: '800px'
     },
     image: {
         maxWidth: '150px',
@@ -13,14 +14,13 @@ const styles = (theme) => ({
     },
     text: {
         marginLeft: '5%',
-        height: 140,
         textAlign: 'left'
     },
 });
 
 const Experience = props => {
     const { classes } = props;
-    const name = useMemo(() => props.place ? props.place.split(' ')[0].split(',')[0].toLowerCase() : '', [props.place]);
+    const name = useMemo(() => props.company ? props.company.split(' ')[0].split(',')[0].toLowerCase().replace('é','e') : '', [props.company]);
     const image = useMemo(() => importImage(`logo/${name}.png`), [name]);
 
     return(
