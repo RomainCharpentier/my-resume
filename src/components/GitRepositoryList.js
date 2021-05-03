@@ -10,7 +10,7 @@ const GitRepositoryList = props => {
     useEffect(() => {
         axios.get(`https://api.github.com/users/RomainCharpentier/repos`)
             .then(response => {
-                setRepos(response.data);
+                setRepos(response.data.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at)));
             })
             .catch(error => {
                 console.log('Error fetching and parsing data', error);
@@ -19,7 +19,6 @@ const GitRepositoryList = props => {
 
     let items;
     if (repos && repos.length > 0) {
-        repos.sort(GitRepository.compare);
         items = repos.filter((item, index) => index < MAX_REPO).map(item => <GitRepository key={item.id} repo={item} />);
     }
     

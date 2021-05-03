@@ -7,14 +7,17 @@ const styles = (theme) => ({
         width: '20%',
         height: 300,
         border: 'solid',
-        margin: '5px 5px'
+        margin: '5px 5px',
+        minWidth: '200px'
     },
     media: {
-        height: '140px'
+        height: '140px',
+        backgroundSize: 'contain'
     }
 });
 
 export function compare (a, b) {
+    console.log(a.updated_at > b.updated_at)
     if (a.updated_at > b.updated_at) return -1;
     if (a.updated_at < b.updated_at) return 1;
     return 0;
@@ -32,6 +35,7 @@ const GitRepository = props => {
                     className={classes.media}
                     image={image}
                     title={props.repo.name} 
+                    onClick={() => window.open(props.repo.clone_url, '_blank').focus()}
                 />
             </CardActionArea>
             <CardContent>

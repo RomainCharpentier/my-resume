@@ -17,7 +17,7 @@
         {
           "title": "Master Informatique",
           "description": "Mention Bien. Parcours conception logicielle\nListe des cours :\n- Architectures des Applications Web (JavaScript, Spring, AngularJS, Maven, Postman, Docker, ...)\n- Machine Learning (Octave, KNN, RNN, Kohonen, Bayes, ...)\n- Big Data (Talend, ETL)\n- Conception Orientée Objet (Java, C++, C#, PHP)\n- Théorie des langages et compilation (Flex, Bison)\n- Algorithmique (Optimisations, arbres, ...)\n- Informatique Graphique (WebGL, GLSL, RayTracing)\n- Programmation parallèle et répartie (Cuda, MPI)\n- Réseau (TCP, UDP, XDR, RMI)\n- IHM (Java, JavaFX)",
-          "place": "Poitiers",
+          "place": "Chasseneuil-du-Poitou",
           "company": "Université de Poitiers",
           "mention": "Bien",
           "start_year": "2017",
@@ -38,28 +38,28 @@
       "title": "Experience",
       "values": [
         {
-          "title": "Ingénieur développement",
-          "description": "Continuité du projet en CDI",
-          "place": "Chauray",
+          "title": "Développeur Fullstack",
+          "description": "GERAP",
+          "place": "Bessines",
           "company": "Cat-Amania",
-          "start_year": "Septembre 2019",
+          "start_year": "Avril 2021",
           "end_year": "..."
         },
         {
-          "title": "Alternant",
-          "description": "Continuité du projet en alternance avec M2 Informatique",
-          "place": "Chauray",
-          "company": "Cat-Amania",
-          "start_year": "Septembre 2018",
-          "end_year": "Septembre 2019"
-        },
-        {
-          "title": "Stagiaire",
-          "description": "- Développement Back-End de traitements de masse automatisées en Java EE\n- Utilisation du framework client J2EE, Oracle, SVN, Maven, Jenkins, ...\n- Travail en équipe, accueil, formation et support pour les nouveaux développeurs\n- Rédaction de documentations techniques et fonctionnelles",
+          "title": "Développeur Back-End",
+          "description": "MAPA - Développement de traitements de masse automatisés en Java EE\n- Java, Expresso, Oracle, HSQL, Mockito, SVN, Maven, Jenkins, ...\n- Travail en équipe, accueil, formation et support pour les nouveaux développeurs\n- Rédaction de documentations techniques et fonctionnelles\n",
           "place": "Chauray",
           "company": "Cat-Amania",
           "start_year": "Juillet 2018",
-          "end_year": "Août 2018"
+          "end_year": "Avril 2021"
+        },
+        {
+          "title": "Développeur Java",
+          "description": "XLIM - Stage en Institut de recherche\n- Développement en Java sur l'application de lancer de rayons RaPSor\n- Correction de divers modules et ajout de nouvelles fonctionnalités ",
+          "place": "Chasseneuil-du-Poitou",
+          "company": "XLIM",
+          "start_year": "Mai 2017",
+          "end_year": "Juin 2017"
         }
       ]
     }
