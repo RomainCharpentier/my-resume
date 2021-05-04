@@ -5,7 +5,6 @@ export const importImage = (name) => {
     try {
         return require(`./assets/${name}`);
     } catch (ex) {
-        console.log(ex)
         return require('./assets/default.png');
     }
 }

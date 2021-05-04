@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { withStyles, Typography, useScrollTrigger, AppBar, Toolbar, IconButton, Menu, MenuItem } from '@material-ui/core';
+import { withStyles, Typography, useScrollTrigger, AppBar, Toolbar, IconButton, Drawer, List, ListItem, Divider } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { getLanguage } from '../utils.js';
 
@@ -27,11 +27,6 @@ const styles = (theme) => ({
         '&:hover': {
             cursor: 'pointer'
         }
-    },
-    mobileIconButton: {
-        justifyContent: 'left',
-        position: 'absolute',
-        right: '0px'
     }
 });
 
@@ -44,9 +39,9 @@ const ElevationScroll = (props) => {
     });
   
     return React.cloneElement(children, {
-      elevation: !mobile && trigger ? 4 : 0,
+      elevation: trigger ? 4 : 0,
       style:{
-        backgroundColor: !mobile && trigger ? '#0a093b' : 'transparent',
+        backgroundColor: trigger ? '#0a093b' : 'transparent',
       }
     });
 }
@@ -58,36 +53,58 @@ const getWidth = () => window.innerWidth || document.documentElement.clientWidth
 const Header = props => {
     const { classes, refs } = props;
     const [width, setWidth] = useState(getWidth());
-    const [anchorEl, setAnchorEl] = React.useState(null);
-
-    const open = Boolean(anchorEl);
-    const handleClick = event => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const webFormat = refs.map((value, key) => (<Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>{getLanguage('fr',`${value.title}.title`)}</Typography>));
-    const mobileFormat = (<IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={handleClick}><MenuIcon /></IconButton>);
-
-    const [headerContent, setHeaderContent] = useState((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat);
+    const [anchorEl, setAnchorEl] = useState(null);
+    const [headerContent, setHeaderContent] = useState('');
 
     const scroll = (ref) => {
         ref.current.scrollIntoView({behavior: 'smooth'});
     }
     
     useEffect(() => {
+        const webFormat = (
+            refs.map((value, key) => (
+                <Typography key={key} className={classes.headerTitle} onClick={() => {scroll(value.ref)}}>
+                    {getLanguage('fr',`${value.title}.title`)}
+                </Typography>
+            ))
+        );
+    
+        const mobileFormat = (
+            <>
+                <IconButton edge="start" className={classes.mobileIconButton} color="inherit" onClick={(event) => setAnchorEl(event.currentTarget)}>
+                    <MenuIcon />
+                </IconButton>
+                <Typography>Romain Charpentier</Typography>
+                <Drawer
+                    open={Boolean(anchorEl)}
+                    onClose={() => setAnchorEl(null)}
+                >
+                    <Typography variant='h3' style={{textAlign: 'center'}}>Menu</Typography>
+                    <Divider />
+                    <List>
+                        {refs.map(value => (
+                            <ListItem key={value.key} onClick={() => {scroll(value.ref); setAnchorEl(null);}}>
+                                <Typography variant='subtitle1'>{getLanguage('fr',`${value.title}.title`)}</Typography>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Drawer>
+            </>
+        );
+
+        setHeaderContent((width > MIN_WEB_WIDTH) ? webFormat : mobileFormat)
+    }, [anchorEl, classes.headerTitle, classes.mobileIconButton, refs, width]);
+    
+    useEffect(() => {
         const resizeListener = () => {
             // change width from the state object
             setWidth(getWidth());
-            if (width > MIN_WEB_WIDTH) {
-                setHeaderContent(webFormat);
-            } else {
-                setHeaderContent(mobileFormat);
-            }
-            handleClose();
+            // if (width > MIN_WEB_WIDTH) {
+            //     setHeaderContent(webFormat);
+            // } else {
+            //     setHeaderContent(mobileFormat);
+            // }
+            setAnchorEl(null);
         };
         // set resize listener
         window.addEventListener('resize', resizeListener);
@@ -97,25 +114,13 @@ const Header = props => {
             // remove resize listener
             window.removeEventListener('resize', resizeListener);
         }
-    });
+    }, [width]);
 
     return(
         <ElevationScroll {...props} mobile={width <= MIN_WEB_WIDTH}>
             <AppBar className={classes.appBar}>
                 <Toolbar variant="dense">
                     {headerContent}
-                    <Menu
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={open}
-                        onClose={handleClose}
-                    >
-                        {refs.map(value => (
-                            <MenuItem className={classes.headerTitle} key={value.key} onClick={() => {scroll(value.ref); handleClose();}}>
-                                <Typography>{getLanguage('fr',`${value.title}.title`)}</Typography>
-                            </MenuItem>
-                        ))}
-                    </Menu>
                 </Toolbar>
             </AppBar>
         </ElevationScroll>

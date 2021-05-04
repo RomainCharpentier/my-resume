@@ -6,7 +6,6 @@ import model from '../models/experience';
 const ExperienceList = props => {
     const { data } = props;
     const experiences = getLanguage('fr', `${data}.values`, model);
-    console.log(experiences)
 
     return(
         <React.Fragment>
