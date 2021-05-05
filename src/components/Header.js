@@ -99,11 +99,6 @@ const Header = props => {
         const resizeListener = () => {
             // change width from the state object
             setWidth(getWidth());
-            // if (width > MIN_WEB_WIDTH) {
-            //     setHeaderContent(webFormat);
-            // } else {
-            //     setHeaderContent(mobileFormat);
-            // }
             setAnchorEl(null);
         };
         // set resize listener
